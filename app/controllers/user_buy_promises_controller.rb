@@ -1,0 +1,2 @@
+class UserBuyPromisesController < ApplicationController
+end
