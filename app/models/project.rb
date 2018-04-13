@@ -5,6 +5,6 @@ class Project < ApplicationRecord
   has_many :user_fund_projects
   has_many :wishlists
   belongs_to :user
-
+  belongs_to :category
 
 end
