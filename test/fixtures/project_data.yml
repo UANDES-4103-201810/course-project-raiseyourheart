@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount_raised: 
+  visible: false
+  goal: 
+  category: MyString
+  deadline: 2018-04-12
+  estimated_delivery_time: 2018-04-12
+  description: MyText
+  project: one
+  website: MyString
+
+two:
+  amount_raised: 
+  visible: false
+  goal: 
+  category: MyString
+  deadline: 2018-04-12
+  estimated_delivery_time: 2018-04-12
+  description: MyText
+  project: two
+  website: MyString
