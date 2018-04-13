@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "static_pages#index"
+
   resources :categories
   resources :user_buy_promises
   resources :user_fund_projects
