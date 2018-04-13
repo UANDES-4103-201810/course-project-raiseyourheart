@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :promises
+  resources :goods
   resources :project_data
   resources :media
   resources :projects
