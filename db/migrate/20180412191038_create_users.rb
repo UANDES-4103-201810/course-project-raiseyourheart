@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.DateTime :login
+      t.datetime :login
       t.string :first
       t.string :last
       t.string :password
@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone
       t.text :description
       t.string :avatar_file_name
-      t.Date :birthdate
+      t.date :birthdate
       t.string :gender
 
       t.timestamps
