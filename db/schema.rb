@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_04_24_201858) do
     t.decimal "amount_raised", default: "0.0"
     t.boolean "visible", default: false
     t.decimal "goal", default: "0.0"
-    t.string "category"
+    t.integer "category_id"
     t.date "deadline"
     t.date "estimated_delivery_time"
     t.text "description"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_04_24_201858) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_project_data_on_category_id"
     t.index ["project_id"], name: "index_project_data_on_project_id"
   end
 
@@ -96,7 +97,6 @@ ActiveRecord::Schema.define(version: 2018_04_24_201858) do
     t.datetime "login"
     t.string "first"
     t.string "last"
-    t.string "password"
     t.string "email", default: "", null: false
     t.string "role"
     t.string "phone"
