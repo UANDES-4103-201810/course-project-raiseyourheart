@@ -8,22 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   </head>
 
 
 
   <body>
 
-  <%= render 'layouts/header' %>
+  <%= render "layouts/header" %>
 
   <div id="wrapper">
 
-    <%= render "layouts/flashes"  %>
+    <%= render "layouts/flashes" %>
 
     <div id="container">
-      <%= render "layouts/sidebar" %>
+      <section id="sidebar">
+        <%= render "layouts/sidebar" %>
+      </section>
       <section id="content">
         <%= yield %>
       </section>
@@ -31,15 +32,7 @@
 
   </div>
 
-  <%= render 'layouts/footer' %>
+  <%= render "layouts/footer" %>
 
-
-
-
-  <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>

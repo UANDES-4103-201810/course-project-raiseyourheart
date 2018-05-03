@@ -1,5 +1,16 @@
 <header id="page-header">
   <div id="masthead">
-    <h1><%= link_to 'Raise Your Heart', root_path %></h1>
+    <h1 id="a"><%= link_to 'Raise Your Heart', root_path %></h1>
+    <nav>
+      <p>
+        <% if current_user %>
+          <%= link_to current_user.first, current_user %>
+          <%= link_to 'Sign Out', user_session_path, method: :delete, class: 'button' %>
+        <% else %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'button' %>
+          <%= link_to 'Sign In', new_user_session_path, class: 'button' %>
+        <% end %>
+      </p>
+    </nav>
   </div>
 </header>
