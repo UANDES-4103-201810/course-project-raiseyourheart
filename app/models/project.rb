@@ -7,4 +7,8 @@ class Project < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  def self.featured
+    @projects = Project.all.limit(3)
+  end
+
 end

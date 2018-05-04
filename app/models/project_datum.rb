@@ -1,5 +1,6 @@
 class ProjectDatum < ApplicationRecord
   belongs_to :project
+  belongs_to :user
 
   validates :amount_raised, numericality: { greater_than_or_equal_to: 0}
   validates :goal, numericality: { greater_than_or_equal_to: 0}
