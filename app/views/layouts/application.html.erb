@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Raiseyourheart</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<head>
+  <title>Raiseyourheart</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
 
-  <body>
-  <%= render 'layouts/header' %>
+<body>
+<%= render 'layouts/header' %>
 
-  <div id="wrapper">
+<div id="wrapper">
 
-    <%= render "layouts/flashes"  %>
+  <%= render "layouts/flashes"  %>
 
-    <div id="container">
-      <%= render "layouts/sidebar" %>
-      <section id="content">
-
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-
-        <%= yield %>
-      </section>
-    </div>
-
+  <div id="container">
+    <%= render "layouts/sidebar" %>
+    <section id="content">
+      <%= yield %>
+    </section>
   </div>
 
-  <%= render 'layouts/footer' %>
+</div>
 
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<%= render 'layouts/footer' %>
 
-  </body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+</body>
 </html>
