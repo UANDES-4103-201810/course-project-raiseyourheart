@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index, :new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -13,31 +15,37 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def create
     @user = User.new(user_params)
-    respond_to do |format|
+    # respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        # format.html { redirect_to @user, notice: 'User was successfully created.' }
+        # format.json { render :show, status: :created, location: @user }
+        redirect_to @user, notice: "Usuario creado con éxito."
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to users_path, notice: "No fue posible crear el usuario."
       end
-    end
+    # end
   end
 
   def update
-    respond_to do |format|
+    @user = User.find(params[:id])
+    # respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        # format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @user }
+        redirect_to @user, notice: "Usuario actualizado con exito."
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        # format.html { render :edit }
+        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to users_path @user, notice: "No fue posible procesar la solicitud."
       end
-    end
+    # end
   end
 
 
@@ -55,6 +63,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:login, :first, :last, :password, :email, :role, :phone, :description, :avatar_file_name, :birthdate, :gender)
+      params.require(:user).permit(:login, :first, :last, :role, :phone, :description, :avatar_file_name, :birthdate, :gender)
     end
 end

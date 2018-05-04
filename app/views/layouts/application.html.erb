@@ -21,6 +21,14 @@
     <div id="container">
       <%= render "layouts/sidebar" %>
       <section id="content">
+
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+
         <%= yield %>
       </section>
     </div>
