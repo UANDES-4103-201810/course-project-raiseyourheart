@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
   <title>Raiseyourheart</title>
@@ -8,7 +8,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -21,16 +20,15 @@
   <div id="container">
     <%= render "layouts/sidebar" %>
     <section id="content">
+
       <%= yield %>
     </section>
+
   </div>
 
 </div>
 
 <%= render 'layouts/footer' %>
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
