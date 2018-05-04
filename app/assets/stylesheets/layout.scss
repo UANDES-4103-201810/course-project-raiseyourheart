@@ -16,19 +16,11 @@ body{
 
 .navbar-custom{
   color:#00984a;
-  font-size: 25px;
   font-weight: bold;
-  margin-bottom: 0px;
-  margin-bottom: 0px;
 }
 
 .main {
   background:#f2f2f2;
-}
-
-.color1 {
-  background: #34495e;
-  color:#fff;
 }
 
 aside {
@@ -36,20 +28,24 @@ aside {
   color:#fff;
 }
 
-footer {
+/*footer {
   background:#16a085;
   color:#fff;
-}
+}*/
 
 .navbar.navbar-default {
   background-color: #99ccff;
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+  color: #00984a;
+  font-weight: bold;
 }
 
 .navbar.navbar-default .navbar-collapse {
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+  color: #00984a;
+  font-weight: bold;
 }
