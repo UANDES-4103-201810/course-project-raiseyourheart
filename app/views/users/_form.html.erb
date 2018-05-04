@@ -1,72 +1,59 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_for(@user) do |f| %>
+  <%= render "shared/errors", object: @user %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :first %>
+        <%= f.text_field :first, size: 40, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :last %>
+        <%= f.text_field :last, size: 40%>
+      </li>
+      <li class="required">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :description %>
+        <%= f.text_area :description, cols: "50", rows: "5"%>
+      </li>
+      <li class="required">
+        <%= f.label :avatar_file_name%>
+        <%= f.text_field :avatar_file_name, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :birthdate%>
+        <%= f.date_select :birthdate%>
+      </li>
+      <li class="required">
+        <%= f.label :gender %>
+        <%= f.select :gender, %w{Male Female} %>
+      </li>
+      <li class="required">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </li>
+      <li class="required">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br/>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </li>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li class="required">
+        <%= f.label :password_confirmation %><br/>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </li>
+    </ol>
+    <p>
+      <% if @user.new_record? %>
+        <%= f.submit "Create Account" %>
+      <% else %>
+        <%= f.submit "Update Account" %>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </p>
+  </fieldset>
 
-  <div class="field">
-    <%= form.label :login %>
-    <%= form.text_field :login %>
-  </div>
-
-  <div class="field">
-    <%= form.label :first %>
-    <%= form.text_field :first %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last %>
-    <%= form.text_field :last %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.text_field :role %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :avatar_file_name %>
-    <%= form.text_field :avatar_file_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :birthdate %>
-    <%= form.text_field :birthdate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
