@@ -1,5 +1,5 @@
 <!-- Basado en https://bootsnipp.com/snippets/OPpVZ-->
-<footer class="footer1 navbar navbar-fixed-bottom">
+<footer class="footer1">
   <div class="container">
 
     <div class="row">
@@ -22,8 +22,8 @@
           <li class="widget-container widget_nav_menu">
             <h1 class="title-widget">Start Now</h1>
             <ul>
-              <li><%= link_to "Sign In", root_path, html_options: {class: "active"} %></li>
-              <li><%= link_to "Sign Up", about_path %></li>
+              <li><%= link_to "Log In", new_user_session_path %></li>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
             </ul>
           </li>
         </ul>
@@ -41,7 +41,7 @@
         </ul>
       </div>
     </div>
-    <div class="row">
+    <div class="row copyright-row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
           <div class="copyright">
             © 2018, <%= link_to "Raise Your Heart", root_path %>
