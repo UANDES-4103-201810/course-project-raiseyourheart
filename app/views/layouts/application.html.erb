@@ -4,27 +4,22 @@
     <title>Raiseyourheart</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   </head>
 
-
-
   <body>
-
-  <%= render "layouts/header" %>
+  <%= render 'layouts/header' %>
 
   <div id="wrapper">
 
-    <%= render "layouts/flashes" %>
+    <%= render "layouts/flashes"  %>
 
     <div id="container">
-      <section id="sidebar">
-        <%= render "layouts/sidebar" %>
-      </section>
+      <%= render "layouts/sidebar" %>
       <section id="content">
         <%= yield %>
       </section>
@@ -32,7 +27,10 @@
 
   </div>
 
-  <%= render "layouts/footer" %>
+  <%= render 'layouts/footer' %>
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
   </body>
 </html>
