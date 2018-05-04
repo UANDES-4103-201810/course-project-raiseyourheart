@@ -1,0 +1,59 @@
+<%= form_for(@user) do |f| %>
+  <%= render "shared/errors", object: @user %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :first %>
+        <%= f.text_field :first, size: 40, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :last %>
+        <%= f.text_field :last, size: 40%>
+      </li>
+      <li class="required">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :description %>
+        <%= f.text_area :description, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :avatar_file_name%>
+        <%= f.text_field :avatar_file_name, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :birthdate%>
+        <%= f.date_select :birthdate%>
+      </li>
+      <li class="required">
+        <%= f.label :gender %>
+        <%= f.select :gender, %w{Male Female} %>
+      </li>
+      <li class="required">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </li>
+      <li class="required">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br/>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </li>
+
+      <li class="required">
+        <%= f.label :password_confirmation %><br/>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </li>
+    </ol>
+    <p>
+      <% if @user.new_record? %>
+        <%= f.submit "Create Account" %>
+      <% else %>
+        <%= f.submit "Update Account" %>
+      <% end %>
+    </p>
+  </fieldset>
+
+<% end %>
