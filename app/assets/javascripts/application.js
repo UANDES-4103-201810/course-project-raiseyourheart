@@ -3,7 +3,9 @@
 //= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
-$(document).ready(function() {
+//= require turbolinks
+//$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 
     var docHeight = $(window).height();
     var footerHeight = $('.footer1').height();
