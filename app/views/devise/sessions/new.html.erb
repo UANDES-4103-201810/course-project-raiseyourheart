@@ -1,51 +1,33 @@
-<div class="container center">
-  <h1>Welcome</h1>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-5">
+    <h2>Log in</h2>
+  </div>
+  <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"form-control" %>
       </div>
-    <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
+  </div>
 
   <%= render "devise/shared/links" %>
 </div>
 
-<div class="container">
 
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  </form>
-
-</div> <!-- /container -->
-
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  
