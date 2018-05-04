@@ -1,5 +1,4 @@
 <div class="container">
-  <header>
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #ffffff;">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -32,11 +31,13 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+            <li><%=link_to "Sign In", new_user_session_path%></li>
+            <li class="divider-vertical"></li>
+            <li><%=link_to "Sign Up", new_user_registration_path%></li>
           </ul>
         </div>
         <!--/.nav-collapse -->
       </div>
       <!--/.container-fluid -->
     </nav>
-  </header>
 </div>
