@@ -5,7 +5,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //$(document).ready(function() {
-$(document).on('turbolinks:load', function() {
+function moveFooter() {
 
     var docHeight = $(window).height();
     var footerHeight = $('.footer1').height();
@@ -15,4 +15,15 @@ $(document).on('turbolinks:load', function() {
     if (footerTop < docHeight) {
         $('.footer1').css('margin-top', 10 + (docHeight - footerTop) + 'px');
     }
+}
+
+$(document).on('turbolinks:load', moveFooter);
+
+let resizeListener;
+let pause = 100;
+
+$(window).resize(function() {
+    clearTimeout(resizeListener);
+    resizeListener = setTimeout(moveFooter, pause);
 });
+
