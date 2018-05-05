@@ -28,8 +28,10 @@
           </div>
           <div class="col-sm-3 col-md-3">
               <%= f.label :birthdate %><br/>
-              <%= f.text_field :birthdate, 'data-behaviour'=>'date-picker', class: "form-control" %>
-            </div>
+              <div class="input-group date" id="sandbox-container">
+                <%= f.text_field :birthdate, "data-provide" => 'datepicker', "data-date-format"=>"dd/mm/yyyy", placeholder: "DD/MM/YYYY", class: "form-control" %><span class="input-group-addon">
+                <i class="glyphicon glyphicon-th"></i></span>
+              </div>
           </div>
         </div>
 

@@ -19,7 +19,10 @@ function moveFooter() {
     }
 }
 
-$(document).on('turbolinks:load', moveFooter);
+$(document).on('turbolinks:load', moveFooter;
+
+$('#sandbox-container .input-group.date').datepicker({
+}););
 
 let resizeListener;
 let pause = 100;
