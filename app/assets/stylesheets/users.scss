@@ -4,9 +4,11 @@
 
 .profiletitle{
   background-color: #fafafa;
-  margin-left: 0;
+  margin-bottom: 2%;
   border-bottom-right-radius:  50px;
   border-top-right-radius:  50px;
+}
 
-
+#sidebar-avatar {
+  position: fixed; left:10%;
 }
