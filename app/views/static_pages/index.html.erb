@@ -1,11 +1,13 @@
 
 <!-- Jumbotron Header -->
+<div class="background"><div class="img"></div>
 <header class="jumbotron my-4">
   <h1 class="display-3">Welcome to Raise Your Heart!</h1>
   <p class="lead">We are a crowdfunding platform with sense.</p>
   <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
   <%= link_to "Browse Projects", projects_path, html_options = { class: "btn btn-primary btn-lg"}  %>
 </header>
+</div>
 
 <!-- Page Features -->
 <div class="row text-center">
@@ -15,10 +17,12 @@
         <!--<img class="card-img-top" src="http://placehold.it/500x325" alt="">-->
         <%= link_to (image_tag ProjectDatum.current_project(project).avatar_file_name, class:"card-img-top"), project %>
         <div class="card-body">
-          <h4 class="card-title"><%= ProjectDatum.current_project(project).name %></h4>
-          <h6 class="card-title"><%= ProjectDatum.current_project(project).amount_raised %></h6>
+          <h3 class="card-title"><%= link_to ProjectDatum.current_project(project).name, project %></h3>
+          <h4 class="card-title"><%= number_to_currency ProjectDatum.current_project(project).amount_raised %></h4>
           <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
-          <p><%= truncate ProjectDatum.current_project(project).description , length: 40, separator: ' ', class: "card-text"  %></p>
+          <blockquote>
+            <p><%= truncate ProjectDatum.current_project(project).description , length: 60, separator: ' ', class: "card-text"  %></p>
+          </blockquote>
         </div>
         <div class="card-footer">
           <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
