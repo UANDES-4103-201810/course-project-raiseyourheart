@@ -13,6 +13,7 @@
 
 *= require normalize
 *= require layout
+*= require users
 */
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
