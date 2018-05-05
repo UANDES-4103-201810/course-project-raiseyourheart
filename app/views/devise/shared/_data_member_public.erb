@@ -1,0 +1,67 @@
+<div style="padding-left:40px;">
+<!--    <%#if !@user.errors.empty?%><div class="alert alert-danger"><%#= devise_error_messages! %></div><%#end%>-->
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-3">
+        <div class="field">
+          <h4 class="boldtitle"> First Name </h4>
+          <%= @user.first %>
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div class="field">
+          <h4 class="boldtitle"> Last Name </h4>
+          <%= @user.last %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-3">
+        <div class="field">
+          <h4 class="boldtitle"> Gender </h4>
+          <%= @user.gender %>
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div class="field">
+          <h4 class="boldtitle"> Birthdate </h4>
+          <%= @user.birthdate %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-3">
+        <div class="field">
+          <h4 class="boldtitle"> e-Mail </h4>
+          <%= @user.email%>
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div class="field">
+          <h4 class="boldtitle"> Member Since! </h4>
+          <%= User.member_since(@user) %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+        <div class="field">
+          <h4 class="boldtitle"> Description </h4>
+          <%= @user.description %>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+          <%if current_user?(@user) || current_user_admin?%>
+            <%= link_to 'Edit Profile', edit_user_path(@user), class: 'btn btn-success' %>
+            <%= link_to 'Delete Account', @user,
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'},
+                        class: 'btn btn-danger' %>
+          <%end%>
+      </div>
+    </div>
+</div>

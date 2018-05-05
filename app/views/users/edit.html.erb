@@ -1,5 +1,6 @@
-<header id="content-header">
-  <h1>My Profile</h1>
-</header>
+<%=render "users/form"%>
 
-<%= render "users/form" %>
+<% if !require_signin %>
+  <%=render "devise/shared/data_member"%>
+<%end%>
+</div>

@@ -1,20 +1,6 @@
-</div>
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-sm-12 col-md-9 profiletitle">
-        <h1 class="text-center"><span class="glyphicon glyphicon-user"></span>    My Profile</h1>
-      </div>
-  </div>
-</div>
-<div class="container extra-special-class-1">
-  <div class="row">
-      <aside class="visible-md visible-lg col-md-2 col-lg-2", id="sidebar-avatar">
-        <%=image_tag(@user.avatar_file_name, class: "img-responsive")%>
-      </aside>
+<%=render "users/form"%>
 
-      <% if current_user?(@user) %>
-        <%=render "devise/shared/data_member"%>
-      <% end %>
+    <% if !require_signin %>
+      <%=render "devise/shared/data_member_public"%>
+    <%end%>
   </div>
-
-<!-- Dejar abierto el div container-->
