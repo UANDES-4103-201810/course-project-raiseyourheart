@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :except => [:show, :new , :create]
+  before_action :require_signin, :except => [:show, :new , :create]
+  before_action :require_correct_user, :except => [:show, :new , :create, :index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    redirect_to user_path
   end
 
   def create
@@ -64,5 +65,10 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:login, :first, :last, :role, :phone, :description, :avatar_file_name, :birthdate, :gender)
+    end
+
+    def require_correct_user
+      @user = User.find(params[:id])
+      redirect_to root_url, alert: "Unauthorized access!" unless current_user?(@user) || current_user_admin?
     end
 end
