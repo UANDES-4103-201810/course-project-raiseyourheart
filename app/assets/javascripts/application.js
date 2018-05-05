@@ -1,8 +1,8 @@
 //...
-//= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require bootstrap-datepicker
 
 //$(document).ready(function() {
