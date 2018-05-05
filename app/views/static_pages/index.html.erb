@@ -17,7 +17,7 @@
         <div class="card-body">
           <h4 class="card-title"><%= ProjectDatum.current_project(project).amount_raised %></h4>
           <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
-          <p><%= truncate ProjectDatum.current_project(project).description , length: 15, separator: ' ', class: "card-text"  %></p>
+          <p><%= truncate ProjectDatum.current_project(project).description , length: 40, separator: ' ', class: "card-text"  %></p>
         </div>
         <div class="card-footer">
           <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
