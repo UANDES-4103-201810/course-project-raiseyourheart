@@ -13,11 +13,11 @@
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="card">
         <!--<img class="card-img-top" src="http://placehold.it/500x325" alt="">-->
-        <%= link_to (image_tag "http://placehold.it/500x325", class:"card-img-top"), project %>
+        <%= link_to (image_tag ProjectDatum.current_project(project), class:"card-img-top"), project %>
         <div class="card-body">
-          <h4 class="card-title"><%= project %></h4>
+          <h4 class="card-title"><%= ProjectDatum.current_project(project).amount_raised %></h4>
           <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
-          <p><%= truncate project.user.to_s , length: 15, separator: ' ', class: "card-text"  %></p>
+          <p><%= truncate ProjectDatum.current_project(project).description , length: 15, separator: ' ', class: "card-text"  %></p>
         </div>
         <div class="card-footer">
           <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
