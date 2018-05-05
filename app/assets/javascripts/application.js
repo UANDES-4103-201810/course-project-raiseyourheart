@@ -19,10 +19,7 @@ function moveFooter() {
     }
 }
 
-$(document).on('turbolinks:load', moveFooter;
-
-$('#sandbox-container .input-group.date').datepicker({
-}););
+$(document).on('turbolinks:load', moveFooter);
 
 let resizeListener;
 let pause = 100;
@@ -32,3 +29,5 @@ $(window).resize(function() {
     resizeListener = setTimeout(moveFooter, pause);
 });
 
+$('#sandbox-container .input-group.date').datepicker({
+});
