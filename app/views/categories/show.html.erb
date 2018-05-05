@@ -1,0 +1,11 @@
+</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-9 profiletitle">
+          <h1 class="text-center"><%= @category.name%></h1>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <%= render "projects/get_project_horizontal", object: @projects%>

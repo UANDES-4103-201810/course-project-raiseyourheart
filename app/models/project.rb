@@ -11,6 +11,10 @@ class Project < ApplicationRecord
     @projects = Project.all.limit(3)
   end
 
+  def self.belong_category(category)
+    @projects = Project.where(category: category)
+  end
+
   def self.user_project(user)
     @projects = Project.where(user: user)
   end
