@@ -10,5 +10,4 @@ class Project < ApplicationRecord
   def self.featured
     @projects = Project.all.limit(3)
   end
-
 end
