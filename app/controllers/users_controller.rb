@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       else
         # format.html { render :new }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
-        redirect_to users_path, notice: "No fue posible crear el usuario."
+        redirect_to users_path, alert: "No fue posible crear el usuario."
       end
     # end
   end
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       else
         # format.html { render :edit }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
-        redirect_to users_path @user, notice: "No fue posible procesar la solicitud."
+        redirect_to users_path @user, alert: "No fue posible procesar la solicitud."
       end
     # end
   end
