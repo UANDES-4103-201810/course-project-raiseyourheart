@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_04_130354) do
+ActiveRecord::Schema.define(version: 2018_05_05_041503) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2018_05_04_130354) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "name"
+    t.string "avatar_file_name", default: "placeholder.png"
     t.index ["category_id"], name: "index_project_data_on_category_id"
     t.index ["project_id"], name: "index_project_data_on_project_id"
   end
@@ -97,10 +99,10 @@ ActiveRecord::Schema.define(version: 2018_05_04_130354) do
     t.datetime "login"
     t.string "first"
     t.string "last"
-    t.string "role"
+    t.boolean "admin", default: false
     t.string "phone"
     t.text "description"
-    t.string "avatar_file_name"
+    t.string "avatar_file_name", default: "placeholder.png"
     t.date "birthdate"
     t.string "gender"
     t.datetime "created_at", null: false

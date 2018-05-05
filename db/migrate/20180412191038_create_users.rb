@@ -4,10 +4,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :login
       t.string :first
       t.string :last
-      t.string :role
+      t.boolean :admin, default:false
       t.string :phone
       t.text :description
-      t.string :avatar_file_name
+      t.string :avatar_file_name, default:"placeholder.png"
       t.date :birthdate
       t.string :gender
 
