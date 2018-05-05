@@ -1,0 +1,29 @@
+<div class="row text-center">
+  <% cnt = 0 %>
+  <% object.each do |project| %>
+    <% cnt +=1 %>
+    <div class="col-lg-4 col-md-4  col-sm-10 mb-4">
+      <div class="card">
+        <!--<img class="card-img-top" src="http://placehold.it/500x325" alt="">-->
+        <%= link_to (image_tag ProjectDatum.current_project(project).avatar_file_name, class:"card-img-top"), project %>
+        <div class="card-body">
+          <h3 class="card-title"><%= link_to ProjectDatum.current_project(project).name, project %></h3>
+          <h4 class="card-title"><%= number_to_currency ProjectDatum.current_project(project).amount_raised %></h4>
+          <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
+          <blockquote>
+            <p><%= truncate ProjectDatum.current_project(project).description , length: 60, separator: ' ', class: "card-text"  %></p>
+          </blockquote>
+        </div>
+        <div class="card-footer">
+          <!--<a href="#" class="btn btn-primary">Find Out More!</a>-->
+          <%= link_to "Find Out More!", project, class:"btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <% if cnt % 3 == 0 %>
+      </div>
+      <div class="row text-center space">
+    <% end %>
+  <% end %>
+  <!-- /.row -->
+</div>
