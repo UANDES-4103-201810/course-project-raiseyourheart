@@ -10,4 +10,8 @@ class Project < ApplicationRecord
   def self.featured
     @projects = Project.all.limit(3)
   end
+
+  def self.user_project(user)
+    @projects = Project.where(user: user)
+  end
 end

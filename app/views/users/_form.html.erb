@@ -2,7 +2,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-md-9 profiletitle">
-        <h1 class="text-center"><span class="glyphicon glyphicon-user"></span>    My Profile</h1>
+        <%if current_user?(@user)%>
+          <h1 class="text-center"><span class="glyphicon glyphicon-user"></span>    My Profile</h1>
+        <%else%>
+          <h1 class="text-center"><span class="glyphicon glyphicon-user"></span>    <%= @user.first%> <%= @user.last%> </h1>
+        <%end%>
       </div>
     </div>
   </div>

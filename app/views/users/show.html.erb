@@ -4,3 +4,12 @@
       <%=render "devise/shared/data_member_public"%>
     <%end%>
   </div>
+
+<header class="page-header">
+  <%if current_user?(@user) %>
+    <h1 class="display-3 text-center">You have <%= pluralize Project.user_project(@user).size, 'fundraiser' %>!<span class="glyphicon glyphicon-heart"></span></h1>
+  <%else%>
+    <h1 class="display-3 text-center"><%=@user.first %> <%=@user.last %> has <%= pluralize Project.user_project(@user).size, 'fundraiser' %>!<span class="glyphicon glyphicon-heart"></span></h1>
+  <%end%>
+    </header>
+<%=render "projects/get_project_vertical", object: Project.user_project(@user) %>
