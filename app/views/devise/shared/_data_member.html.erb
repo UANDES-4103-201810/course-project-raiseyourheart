@@ -1,3 +1,4 @@
+<div style="padding-left:40px;">
   <%= form_for(@user) do |f| %>
     <%if !@user.errors.empty?%><div class="alert alert-danger"><%= devise_error_messages! %></div><%end%>
     <div class="row">
@@ -68,3 +69,4 @@
       </div>
     </div>
   <% end %>
+</div>
