@@ -2,7 +2,7 @@
 <section class="main container">
   <% object.each do |project| %>
     <div class="row">
-      <section class="posts col-sm-12 col-md-9">
+      <section class="posts col-sm-12 col-md-9 col-md-offset-1">
         <article class="post clearfix">
           <%= image_tag ProjectDatum.current_project(project).avatar_file_name, :class=>"thumb pull-left style-img" %>
           <h2><%= link_to ProjectDatum.current_project(project).name, project, class:"post-title" %></h2>

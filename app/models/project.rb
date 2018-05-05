@@ -14,4 +14,9 @@ class Project < ApplicationRecord
   def self.user_project(user)
     @projects = Project.where(user: user)
   end
+
+  def self.user_funds(user)
+    @projects=Project.where(id: UserFundProject.where(user: user))
+  end
+
 end
