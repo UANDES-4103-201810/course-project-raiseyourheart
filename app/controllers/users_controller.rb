@@ -15,7 +15,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if params[:id] == current_user.id
+      @user = User.find(params[:id])
+      redirect_to user_edit_path(@user)
+    else
+      redirect_to current_user, alert: "No tiene permiso para editar otros usuarios."
+    end
   end
 
   def create
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
       else
         # format.html { render :new }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
-        redirect_to users_path, notice: "No fue posible crear el usuario."
+        redirect_to users_path, alert: "No fue posible crear el usuario."
       end
     # end
   end
@@ -43,7 +48,7 @@ class UsersController < ApplicationController
       else
         # format.html { render :edit }
         # format.json { render json: @user.errors, status: :unprocessable_entity }
-        redirect_to users_path @user, notice: "No fue posible procesar la solicitud."
+        redirect_to users_path @user, alert: "No fue posible procesar la solicitud."
       end
     # end
   end
