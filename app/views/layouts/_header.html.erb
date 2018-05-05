@@ -21,11 +21,11 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories
                 <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <% Category.all.each do |c| %>
+                <% all_categories.each do |c| %>
                   <li><%= link_to c.name, category_path(c) %></li>
                 <%end%>
               </ul>
-            </li>>
+            </li>
             <% if !user_signed_in? %>
               <li><%=link_to "Log In", new_user_session_path %></li>
               <li><%=link_to "Sign Up", new_user_registration_path %></li>

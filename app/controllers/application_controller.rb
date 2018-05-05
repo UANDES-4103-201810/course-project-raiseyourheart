@@ -32,7 +32,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_admin?
 
-
+  def all_categories
+    @categories=Category.all
+  end
+  helper_method :all_categories
 
 
   protected
