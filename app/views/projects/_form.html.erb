@@ -1,0 +1,54 @@
+<%= form_for(@project) do |f| %>
+  <%if !@project.errors.empty?%><div class="alert alert-danger"><%= devise_error_messages! %></div><%end%>
+  <div class="col-sm-12 col-md-4 col-md-offset-1">
+    <div class="row">
+      <div class="field">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name, autofocus: true,autocomplete: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <%= f.label :description %><br/>
+        <%= f.text_area :description, autocomplete: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <%= f.label :goal %><br/>
+        <%= f.text_field :goal, autocomplete: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 edit-project-forms">
+        <%= f.label :deadline %><br/>
+        <div class="input-group date" id="sandbox-container">
+          <%= f.text_field :deadline, "data-provide" => 'datepicker', "data-date-format" => "dd/mm/yyyy", placeholder: "DD/MM/YYYY", class: "form-control" %>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 edit-project-forms">
+        <%= f.label :delivery %><br/>
+        <div class="input-group date edit-project-forms" id="sandbox-container">
+          <%= f.text_field :estimated_delivery_time, "data-provide" => 'datepicker', "data-date-format" => "dd/mm/yyyy", placeholder: "DD/MM/YYYY", class: "form-control" %>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 edit-project-forms">
+        <%= f.label :website %><br/>
+        <%= f.text_field :website, autocomplete: true, class: "form-control" %><br>
+      </div>
+      <div class="col-sm-12 col-md-6 edit-project-forms">
+        <%= f.label :Image %><br/>
+        <%= f.text_field :avatar_file_name, autocomplete: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <%= f.submit "Save Changes!" , class: "btn btn-success" %>
+    </div>
+  </div>
+<%end%>
+
+
