@@ -19,7 +19,16 @@
   margin-top: 10px;
   margin-right: 10px;
   width: 20%;
+  width:  150px;
+  height: 150px;
 }
+.thumb-v{
+  margin-right: 0px;
+  width: 40%;
+  width:  100px;
+  height: 100px;
+}
+
 
 .thumb .style-img{
   width: 100%;
@@ -27,4 +36,26 @@
 
 .contenedor-botones{
   width: 100%;
+}
+
+.thumb-project{
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 100%;
+  height: auto;
+  
+}
+
+.thumb thumb-project .style-img{
+  width: 100%;
+}
+
+.row .project-profile{
+  font-weight: bold;
+  font-style: italic;
+  text-align: right;
+}
+
+.white-button-text{
+  color:#fff;
 }

@@ -4,7 +4,7 @@
     <div class="row">
       <section class="posts col-sm-12 col-md-9 col-md-offset-1">
         <article class="post clearfix">
-          <%= image_tag ProjectDatum.current_project(project).avatar_file_name, :class=>"thumb pull-left style-img" %>
+          <%= image_tag ProjectDatum.current_project(project).avatar_file_name, :class=>"thumb pull-left style-img visible-md visible-lg" %>
           <h2><%= link_to ProjectDatum.current_project(project).name, project, class:"post-title" %></h2>
           <p class="post-contenido text-justify"> <%=ProjectDatum.current_project(project).description%></p>
           <p class="post-contenido text-justify"> <%= number_to_currency ProjectDatum.current_project(project).amount_raised%></p>
