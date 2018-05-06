@@ -16,7 +16,7 @@ class ProjectDataController < ApplicationController
     new_params["avatar_file_name"]=project_data_params["avatar_file_name"]
     @project_datum_new=ProjectDatum.new(new_params)
 
-    if @project_datum_new.save
+    if @project_datum_new.save!
       redirect_to project_path(@project_datum.project_id), notice: "Project Updated!."
     else
       redirect_to project_path(@project_datum.project_id), alert: @project_datum_new.errors.full_messages
