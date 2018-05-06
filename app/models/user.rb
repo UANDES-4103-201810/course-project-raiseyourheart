@@ -18,6 +18,8 @@ class User < ApplicationRecord
     user.created_at.year
   end
 
-
+  def self.admins
+    admins = User.where(admin:true)
+  end
 
 end

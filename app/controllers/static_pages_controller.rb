@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    @team = User.admins
   end
 
   def contact
