@@ -1,19 +1,32 @@
+<!-- Introduction Row -->
+<h1 class="my-4">About Us
+  <small>
+    <% if !current_user.nil? %>
+      Hello <%= current_user.first %>, It's
+    <% else %>
+      It's
+    <% end %>
+    Nice to Meet You!
+  </small>
+</h1>
+<p>We are a team of individuals whose purpose in life is to help others. If you have an idea for a
+  project and don't know where to get the funds, we are here for you!</p>
+<p>All we ask for is the project to be for a good cause. We don't sponsor for profit projects.</p>
+
+<!-- Team Members Row -->
+
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
-    <header class="page-header">
-      <h1 class="display-3 text-center">About Us</h1>
-    </header>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-6 col-md-6 text-left">
-    <p>We are a team on individuals whose purpose in life is to help others.</p>
-    <p>If you have an idea for a project and don't know where to get the funds we are here for you!</p>
-    <p>All we ask is the project to be for a good cause. We don't sponsor for profit projects.</p>
-  </div>
-</div>
-<div class="row" style="margin-top: 1em;">
-  <div class="text-center">
-    <h2>We want to help <strong>you</strong> realize you dreams.</h2>
-  </div>
+    <div class="col-lg-12 our-team-div">
+      <h2 class="my-4">Our Team</h2>
+    </div>
+    <% @team.each do |member| %>
+      <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <!--<img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">-->
+        <%= link_to(image_tag(member.avatar_file_name, class: "img-circle img-fluid d-block mx-auto"), member) %>
+        <h3><%= link_to "#{member.first} #{member.last}", member %>
+          <small>Admin</small>
+        </h3>
+        <p><%= truncate member.description, length: 50, separator:' ' %></p>
+      </div>
+  <% end %>
 </div>

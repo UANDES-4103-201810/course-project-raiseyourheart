@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get "/about", to: "static_pages#about", as: "about"
   get "/contact", to: "static_pages#contact", as: "contact"
+  post "/static_pages/thank_you"
   resources :categories
   resources :user_buy_promises
   resources :user_fund_projects
