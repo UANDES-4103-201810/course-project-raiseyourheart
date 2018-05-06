@@ -19,7 +19,7 @@ class ProjectDataController < ApplicationController
     if @project_datum_new.save
       redirect_to project_path(@project_datum.project_id), notice: "Project Updated!."
     else
-      redirect_to project_path(@project_datum.project_id), alert: "Error: Project couldn't be updated."
+      redirect_to project_path(@project_datum.project_id), alert: @project_datum_new.errors.full_messages
     end
     # end
   end
