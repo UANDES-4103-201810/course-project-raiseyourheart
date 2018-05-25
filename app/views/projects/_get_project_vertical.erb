@@ -11,7 +11,7 @@
           <h4 class="card-title"><%= number_to_currency ProjectDatum.current_project(project).amount_raised %></h4>
           <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
           <blockquote>
-            <p><%= truncate ProjectDatum.current_project(project).description , length: 60, separator: ' ', class: "card-text"  %></p>
+            <p><%= truncate ProjectDatum.current_project(project).abstract , length: 60, separator: ' ', class: "card-text"  %></p>
           </blockquote>
         </div>
         <div class="card-footer">
