@@ -1,6 +1,6 @@
 <div class="container col-sm-12">
   <div class="col-sm-3 visible-md visible-lg">
-    <%=image_tag(@user.avatar.url(:thumb), class: "img-responsive")%>
+    <%= image_tag(@user.avatar.url, class: "img-responsive")%>
   </div>
   <div class="col-sm-8 col-sm-offset-1 visible-md visible-lg">
     <%= form_for(@user) do |f| %>

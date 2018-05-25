@@ -78,7 +78,7 @@ class ProjectDataController < ApplicationController
   private
 
   def project_data_params
-    params.require(:project_datum).permit(:amount_raised, :visible, :goal, :category_id, :deadline, :estimated_delivery_time, :description, :project_id, :website, :name, :avatar_file_name, :abstract)
+    params.require(:project_datum).permit(:amount_raised, :visible, :goal, :category_id, :deadline, :estimated_delivery_time, :description, :project_id, :website, :name, :avatar, :abstract)
   end
 
 end

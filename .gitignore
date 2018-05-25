@@ -31,3 +31,5 @@
 
 # Ignore .idea from RubyMine
 .idea
+
+/public/system
