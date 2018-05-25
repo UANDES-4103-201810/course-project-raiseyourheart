@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   post "/static_pages/thank_you"
   resources :categories
   resources :user_buy_promises
-  resources :user_fund_projects
   resources :wishlists
   resources :promises
   resources :goods
   resources :project_data
   resources :media
-  resources :projects
+  resources :projects do
+    resources :user_fund_projects
+  end
   resources :users
   #get 'user/:id/projects' => 'projects#index'
 
