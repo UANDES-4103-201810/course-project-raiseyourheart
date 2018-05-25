@@ -1,8 +1,43 @@
 # Raise your Heart
 
 ## Group members
-- Carlos Díaz
-- Andrés Howard
+- [Carlos Díaz](mailto:cdiaz1@miuandes.cl)
+- [Andrés Howard](mailto:aihoward@miuandes.cl)
+
+## Features implemented
+
+- In the landing page we show three featured projects. From here 
+the user can go to _Browse Projects_ where all projects are shown or
+select one from the three featured.
+- On the index of projects we show all projects with visible attribute
+set to true.
+- We have two static pages (About and Contact) that display information
+and a contact form respectively.
+- In the navigation bar we can select a category. This redirects us
+to a page with all projects belongings to that category.
+- If a user is logged in their name appears in the navigation bar, and 
+it is a link to their profile. Some important things to consider:
+   
+   1. A user can only edit their own profile, not others.
+   2. Admins can edit everybody's profile.
+   3. Users and admins can access all users profiles. Unregistered users 
+   can also do so.
+   
+- We keep history of all changes made to projects, to do so we have a second
+table called _Project Datum_ that stores all data from a project. This way, 
+every time a change is made to the project we create a new registry y 
+_Project Datum_, keeping the old one safe. To keep updated the relationship
+betweeen Project and Project Datum every time we make a change (creating a new
+registry) we update the reference.
+- Projects have a default _placeholder_ if none is specified. This is to keep
+the look of the website consistent.
+- Projects show in their respective pages a progress bar with the goal and current 
+amount raised. 
+- Users can register (Become a Member), for this we have a form and a corresponding
+controller and model. This way, we store then in the database.
+- In order to keep the footer at the end we use `javascript`. This ensures that is 
+the window is resized the footer will always be at the bottom. 
+
 
 # Rails README
 

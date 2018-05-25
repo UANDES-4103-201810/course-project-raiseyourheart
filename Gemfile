@@ -22,10 +22,12 @@ gem 'uglifier', '>= 1.3.0'
 
 # Automate seeds
 gem 'seed_dump'
-
+# Authentication
 gem 'devise'
-
+# Bootstrap for frontend
 gem 'bootstrap-datepicker-rails'
+# Paperclip gem to handle file uploads
+gem 'paperclip', "~> 6.0.0"
 
 
 # Use CoffeeScript for .coffee assets and views
