@@ -1,12 +1,42 @@
-<header id="content-header">
-  <h1><%= pluralize(@users.size, 'User') %></h1>
-</header>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+    <header class="page-header">
+      <h1 class="display-3 text-center">There are <%= pluralize @users.size, 'registered User' %></h1>
+    </header>
+  </div>
+</div>
 
-<ul id="users">
+<section class="main container">
   <% @users.each do |user| %>
-    <li>
-      <%= link_to user.first, user %>
-      <%= link_to user.last, user %>
-    </li>
-  <% end %>
-</ul>
+    <div class="row">
+      <div class="posts col-sm-12 col-md-9 col-md-offset-1">
+        <article class="post clearfix">
+          <div class="posts col-sm-12 ">
+            <div class="row">
+              <div class="posts col-sm-2">
+                <%= image_tag user.avatar_file_name, :class=>"thumb pull-left style-img visible-md visible-lg small-img-index" %>
+              </div>
+              <div class="posts col-sm-10">
+                <div class="row">
+                  <h2><%= link_to user.first, user, class:"post-title" %> <%= link_to user.last, user, class:"post-title" %></h2>
+                  <p class="post-contenido text-justify"> <%=user.description.truncate(200, separator: ' ')%></p>
+                  <p class="post-contenido text-justify"> Member since: <%=User.member_since(user)%></p>
+                </div>
+                <div class="row">
+                  <%= link_to 'Show More!', user, class: 'btn btn-success' %>
+                  <%= link_to 'Delete Account', user,
+                              method: :delete,
+                              data: {confirm: 'Are you sure?'},
+                              class: 'btn btn-danger' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  <%end%>
+
+
+</section>

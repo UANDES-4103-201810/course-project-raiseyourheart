@@ -25,7 +25,7 @@ it is a link to their profile. Some important things to consider:
    
 - We keep history of all changes made to projects, to do so we have a second
 table called _Project Datum_ that stores all data from a project. This way, 
-every time a change is made to the project we create a new registry y 
+every time a change is made to the project we create a new registry in 
 _Project Datum_, keeping the old one safe. To keep updated the relationship
 betweeen Project and Project Datum every time we make a change (creating a new
 registry) we update the reference.
