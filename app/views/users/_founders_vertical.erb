@@ -17,7 +17,7 @@
     </div>
     <%if object.first!="Anonymous"%>
       <div class="row">
-        <%= link_to 'View Profile', user_path(@user), class: 'btn btn-primary btn-sm' %>
+        <%= link_to 'View Profile', user_path(object), class: 'btn btn-primary btn-sm' %>
       </div>
     <%end%>
   </div>
