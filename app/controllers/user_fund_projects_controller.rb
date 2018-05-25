@@ -17,7 +17,6 @@ class UserFundProjectsController < ApplicationController
     else
       @user = current_user
     end
-    puts @user.id
     @project = Project.find(params[:project_id])
     amount_raised = UserFundProject.amount_raised(@project) + amount_param[:amount].to_f
     puts amount_raised
@@ -35,6 +34,7 @@ class UserFundProjectsController < ApplicationController
     new_params["website"] = @project_datum.website
     new_params["name"] = @project_datum.name
     new_params["avatar_file_name"] = @project_datum.avatar_file_name
+    new_params["abstract"] = @project_datum.abstract
 
     @project_datum_new = ProjectDatum.new(new_params)
 

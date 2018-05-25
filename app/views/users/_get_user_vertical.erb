@@ -1,0 +1,22 @@
+  <div class="row">
+    <h3 class="text-center"><strong>The Organizer  </strong><span class="glyphicon glyphicon-user"></span></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 visible-md visible-lg">
+      <%=image_tag(@user.avatar.url(:thumb), class: "thumb-v")%>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <strong><%=@user.first%> <%=@user.last%></strong>
+      </div>
+      <div class="row">
+        <strong>Member since: </strong><%=User.member_since(@user)%>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center btn-user-vertical" >
+    <%= link_to 'Profile', user_path(@user), class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Donate', new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class: 'btn btn-success btn-lg' %>
+  </div>
+
+

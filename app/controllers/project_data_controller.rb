@@ -58,13 +58,18 @@ class ProjectDataController < ApplicationController
     else
       new_params["avatar_file_name"] = project_data_params["avatar_file_name"]
     end
+    if project_data_params["abstract"].nil?
+      new_params["abstract"] = @project_datum.abstract
+    else
+      new_params["abstract"] = project_data_params["abstract"]
+    end
 
     @project_datum_new = ProjectDatum.new(new_params)
 
-    if @project_datum_new.save!
+    if @project_datum_new.save
       redirect_to project_path(@project_datum.project_id), notice: "Project Updated!."
     else
-      redirect_to project_path(@project_datum.project_id), alert: "Project could not be Updated."
+      redirect_to project_path(@project_datum.project_id), alert: "Project could not be Updated: "+@project_datum_new.errors.full_messages.to_sentence
     end
     # end
   end
@@ -73,7 +78,7 @@ class ProjectDataController < ApplicationController
   private
 
   def project_data_params
-    params.require(:project_datum).permit(:amount_raised, :visible, :goal, :category_id, :deadline, :estimated_delivery_time, :description, :project_id, :website, :name, :avatar_file_name)
+    params.require(:project_datum).permit(:amount_raised, :visible, :goal, :category_id, :deadline, :estimated_delivery_time, :description, :project_id, :website, :name, :avatar_file_name, :abstract)
   end
 
 end
