@@ -12,7 +12,7 @@
       </div><br>
       <div class="row text-center">
         <button class="btn btn-success btn-lg">
-          <%= link_to "Donate!", new_project_user_fund_project_path(@project), class:"white-button-text" %> <span class="glyphicon glyphicon-heart"></span>
+          <%= link_to "Donate!", new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class:"white-button-text" %> <span class="glyphicon glyphicon-heart"></span>
         </button>
       </div><br>
       <div class="row">
