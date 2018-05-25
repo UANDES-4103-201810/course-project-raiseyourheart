@@ -3,22 +3,21 @@
   <h1 class="display-3 text-center">Thanks for your help! <span class="glyphicon glyphicon-heart"></span></h1>
 <%else%>
   <h1 class="display-3 text-center">Thanks for your help! <%=@user.first %> <%=@user.last %> <span class="glyphicon glyphicon-heart"></span></h1>
-<%end%>
-<%= form_for(@fund) do |f| %>
+<%end%><br>
+<%= form_for([@project,@fund]) do |f| %>
   <%if !@fund.errors.empty?%><div class="alert alert-danger"><%= devise_error_messages! %></div><%end%>
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+    <div class="text-center w-30-form">
       <div class="field">
         <%= f.label :amount %><br />
         <%= f.number_field :amount, autofocus: true, autocomplete: 0, class: "form-control"%>
       </div>
     </div>
-  </div>
-
+  </div></br>
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+    <div class="text-center">
       <div class="actions">
-          <%= f.submit "Donate!", class: "btn btn-success" %>
+          <%= f.submit "Donate!", class: "btn btn-success btn-lg" %>
       </div>
     </div>
   </div>

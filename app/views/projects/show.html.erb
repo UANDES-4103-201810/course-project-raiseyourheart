@@ -38,8 +38,15 @@
         </div>
       </div>
       <div class="row">
-        <%= link_to "Edit Project!", edit_project_path(@project), class: "btn btn-success" %>
+        <%if current_user?(@project.user) || current_user_admin?%>
+          <%= link_to "Edit Project!", edit_project_path(@project), class: "btn btn-success" %>
+          <%= link_to 'Delete Project', @project,
+                      method: :delete,
+                      data: {confirm: 'Are you sure?'},
+                      class: 'btn btn-danger' %>
+        <%end%>
       </div>
+
     </div>
   </div>
 </div>
