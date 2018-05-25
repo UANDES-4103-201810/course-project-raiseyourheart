@@ -1,6 +1,7 @@
 class ProjectDataController < ApplicationController
 
   def update
+    fail()
     @project_datum=ProjectDatum.find(params[:id])
     new_params = Hash.new
     if project_data_params["amount_raised"].nil?
@@ -73,7 +74,7 @@ class ProjectDataController < ApplicationController
   private
 
   def project_data_params
-    params.require(:project_datum).permit(:amount_raised, :visible, :goal, :category_id, :deadline, :estimated_delivery_time, :description, :project_id, :website, :name, :avatar_file_name)
+    params.require(:project_datum).permit(:amount_raised, :visible, :goal, :category_id, :deadline, :estimated_delivery_time, :description, :project_id, :website, :name, :avatar)
   end
 
 end

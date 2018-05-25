@@ -22,7 +22,7 @@
     <% @team.each do |member| %>
       <div class="col-lg-4 col-sm-6 text-center mb-4">
         <!--<img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">-->
-        <%= link_to(image_tag(member.avatar_file_name, class: "img-circle img-fluid d-block mx-auto thumb-v"), member) %>
+        <%= link_to(image_tag(member.avatar.url, class: "img-circle img-fluid d-block mx-auto thumb-v"), member) %>
         <h3><%= link_to "#{member.first} #{member.last}", member %>
           <small>Admin</small>
         </h3>
