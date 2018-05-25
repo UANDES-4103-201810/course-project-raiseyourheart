@@ -20,7 +20,7 @@ class Project < ApplicationRecord
   end
 
   def self.user_funds(user)
-    @projects = Project.where(id: UserFundProject.where(user: user))
+    @projects = Project.where(id: UserFundProject.where(user: 2).select(:project_id))
   end
 
 end
