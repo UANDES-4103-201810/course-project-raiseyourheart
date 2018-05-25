@@ -3,20 +3,26 @@
   </div>
   <div class="row">
     <div class="col-md-6 visible-md visible-lg">
-      <%=image_tag(@user.avatar.url(:thumb), class: "thumb-v")%>
+      <%=image_tag(object.avatar.url(:thumb), class: "thumb-v")%>
     </div>
     <div class="col-md-6">
       <div class="row">
-        <strong><%=@user.first%> <%=@user.last%></strong>
+        <strong><%=object.first%> <%=object.last%></strong>
       </div>
       <div class="row">
-        <strong>Member since: </strong><%=User.member_since(@user)%>
+        <strong>Member since: </strong><%=User.member_since(object)%>
       </div>
     </div>
   </div>
   <div class="row text-center btn-user-vertical" >
-    <%= link_to 'Profile', user_path(@user), class: 'btn btn-primary btn-lg' %>
-    <%= link_to 'Donate', new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class: 'btn btn-success btn-lg' %>
+    <%if params[:action] == 'edit' %>
+      <button type="button" class="btn btn-lg btn-primary" disabled>Profile</button>
+      <button type="button" class="btn btn-lg btn-success" disabled>Profile</button>
+    <%else%>
+      <%= link_to 'Profile', user_path(object), class: 'btn btn-primary btn-lg' %>
+      <%= link_to 'Donate', new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class: 'btn btn-success btn-lg' %>
+    <%end%>
+
   </div>
 
 
