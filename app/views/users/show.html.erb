@@ -1,11 +1,9 @@
-<%=render "users/form"%>
+<%=render "users/user_header"%>
 
     <% if !require_signin %>
       <%=render "devise/shared/data_member_public"%>
     <%end%>
-  </div>
-</div>
-<div class="container">
+
 
   <header class="page-header">
     <%if current_user?(@user) %>
