@@ -18,9 +18,9 @@ class UserFundProjectsController < ApplicationController
       @user = current_user
     end
     @project = Project.find(params[:project_id])
-    amount_raised = UserFundProject.amount_raised(@project) + amount_param[:amount].to_f
-    puts amount_raised
     @project_datum = ProjectDatum.current_project(@project)
+    amount_raised = @project_datum.amount_raised + amount_param[:amount].to_f
+    puts amount_raised
 
     new_params = Hash.new
     new_params["amount_raised"] = amount_raised

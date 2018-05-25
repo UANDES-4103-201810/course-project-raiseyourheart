@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :user_fund_projects
   end
   resources :users
+
+  post "/user_buy_promises" => "user_buy_promises#create", as: "buy_promise_path"
+
   #get 'user/:id/projects' => 'projects#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

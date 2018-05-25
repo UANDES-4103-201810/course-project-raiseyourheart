@@ -24,7 +24,7 @@
                   </div>
                 </div><br>
                 <div class="row">
-                  <%= link_to 'Donate', new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class: 'btn btn-success btn-lg' %>
+                  <%= link_to 'Donate', new_user_buy_promise_path(@project ,{:project => @project.id, :promise => promise.id}  ), class: 'btn btn-success btn-lg' %>
                   <% if current_user?(@user) || current_user_admin?%>
                     <%= link_to 'Edit!', edit_promise_path(promise), class: 'btn btn-warning btn-lg' %>
                     <%= link_to 'Delete Promise', promise,
