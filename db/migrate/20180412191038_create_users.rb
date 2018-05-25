@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :admin, default:false
       t.string :phone
       t.text :description
-      t.string :avatar_file_name, default:"placeholder-user.jpg"
+      t.attachment :avatar
       t.date :birthdate
       t.string :gender
 

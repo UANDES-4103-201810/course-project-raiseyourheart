@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_attached_file :avatar, styles: {medium: "50x50>", thumb: "10x10>"}, default_url: "placeholder-user.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :projects, dependent: :destroy
   # has_many :project_data, through: :projects
   has_many :user_fund_projects
