@@ -84,6 +84,11 @@
       <%else%>
         <h4>This project doesn't have promises yet</h4>
       <%end%>
+      <% if current_user?(@user) || current_user_admin?%>
+        <div class="row">
+          <%= link_to 'Create new Promise', new_promise_path, class: 'btn btn-primary' %>
+        </div>
+      <%end%>
     </div>
     <div class="col-sm-3 col-sm-offset-1">
       <div class="row">
