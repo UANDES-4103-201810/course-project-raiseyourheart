@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   belongs_to :category
 
   def self.featured
-    @projects = Project.all.limit(3)
+    @projects = Project.where(featured:true).limit(3)
   end
 
   def self.belong_category(category)
