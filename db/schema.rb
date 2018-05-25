@@ -47,10 +47,13 @@ ActiveRecord::Schema.define(version: 2018_05_05_041503) do
     t.text "description"
     t.integer "project_id"
     t.string "website"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "name"
-    t.string "avatar_file_name", default: "placeholder.png"
     t.index ["category_id"], name: "index_project_data_on_category_id"
     t.index ["project_id"], name: "index_project_data_on_project_id"
   end
@@ -102,7 +105,10 @@ ActiveRecord::Schema.define(version: 2018_05_05_041503) do
     t.boolean "admin", default: false
     t.string "phone"
     t.text "description"
-    t.string "avatar_file_name", default: "placeholder.png"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.date "birthdate"
     t.string "gender"
     t.datetime "created_at", null: false
