@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @projectdata = ProjectDatum.current_project(@project)
     @user = @project.user
+    @promises = Promise.where(project_id: @project)
+    @founders = User.user_funds(@project)
   end
 
   def new

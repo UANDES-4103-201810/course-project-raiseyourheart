@@ -24,4 +24,10 @@ class User < ApplicationRecord
     admins = User.where(admin:true)
   end
 
+  def self.user_funds(project)
+    @users = User.where(id: UserFundProject.where(project: project).select(:user_id)).limit(5)
+  end
+
+
+
 end

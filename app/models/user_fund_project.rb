@@ -10,5 +10,7 @@ class UserFundProject < ApplicationRecord
     amount_raised = UserFundProject.where(project: project).sum(:amount)
   end
 
-
+  def self.last_donation_user(user)
+    amount = UserFundProject.where(user: user).max_by(&:id).amount
+  end
 end

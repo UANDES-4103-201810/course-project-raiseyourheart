@@ -53,7 +53,7 @@
   <div class="row">
     <header class="page-header">
         <h1 class="display-3 text-center">Who needs you?</h1>
-  </header>
+    </header>
   </div>
   <div class="row">
     <div class="col-sm-8">
@@ -61,7 +61,35 @@
       <%= @projectdata.description %>
     </div>
     <div class="col-sm-3 col-sm-offset-1">
+      <div class="row">
+        <h3 class="text-center"><strong>The Organizer  </strong><span class="glyphicon glyphicon-user"></span></h3>
+      </div>
       <%= render "users/get_user_vertical" , object:@user%>
+      <div class="row text-center btn-user-vertical" >
+        <%if params[:action] == 'edit' %>
+          <button type="button" class="btn btn-lg btn-primary" disabled>Profile</button>
+          <button type="button" class="btn btn-lg btn-success" disabled>Profile</button>
+        <%else%>
+          <%= link_to 'Profile', user_path(@user), class: 'btn btn-primary btn-lg' %>
+          <%= link_to 'Donate', new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class: 'btn btn-success btn-lg' %>
+        <%end%>
+      </div>
+    </div>
+  </div><br>
+  <div class="row margin-top-20">
+    <div class="col-sm-8">
+      <h3><strong>Donate throw Promises!</strong></h3>
+        <%= render "promises/show_promise_horizontal" , object:@promises%>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">
+      <div class="row">
+        <h3 class="text-center"><strong>People who helped!</strong></h3>
+      </div>
+      <div class="row round1 padding-15">
+         <%@founders.each do |founder|%>
+          <%= render "users/founders_vertical" , object:founder%>
+        <%end%>
+      </div>
     </div>
   </div>
 

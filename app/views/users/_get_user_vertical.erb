@@ -1,7 +1,5 @@
-  <div class="row">
-    <h3 class="text-center"><strong>The Organizer  </strong><span class="glyphicon glyphicon-user"></span></h3>
-  </div>
-  <div class="row">
+
+  <div class="row margin-top-20">
     <div class="col-md-6 visible-md visible-lg">
       <%=image_tag(object.avatar.url(:thumb), class: "thumb-v")%>
     </div>
@@ -14,15 +12,6 @@
       </div>
     </div>
   </div>
-  <div class="row text-center btn-user-vertical" >
-    <%if params[:action] == 'edit' %>
-      <button type="button" class="btn btn-lg btn-primary" disabled>Profile</button>
-      <button type="button" class="btn btn-lg btn-success" disabled>Profile</button>
-    <%else%>
-      <%= link_to 'Profile', user_path(object), class: 'btn btn-primary btn-lg' %>
-      <%= link_to 'Donate', new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class: 'btn btn-success btn-lg' %>
-    <%end%>
 
-  </div>
 
 

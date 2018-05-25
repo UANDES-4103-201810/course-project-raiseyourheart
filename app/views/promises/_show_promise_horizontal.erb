@@ -1,0 +1,42 @@
+
+
+  <% object.each do |promise| %>
+    <div class="row">
+      <div class="posts col-sm-12">
+        <article class="post clearfix">
+          <div class="posts col-sm-12 ">
+            <div class="row">
+              <div class="posts col-sm-4">
+                <%= image_tag promise.avatar.url, :class=>"thumb thumb-project pull-left style-img visible-md visible-lg", :id=>"no-margin-top" %>
+              </div>
+              <div class="posts col-sm-8">
+                <div class="row">
+                  <p class="post-contenido text-justify"> <%=promise.description.truncate(200, separator: ' ')%></p>
+                </div>
+                <div class="row">
+                  <div class="posts col-sm-4 edit-project-forms">
+                    <p class="post-contenido text-justify"><strong> Amount: </strong><%=promise.amount%></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="posts col-sm-6 edit-project-forms">
+                    <p> <strong>Delivery Date: </strong><%=promise.delivery_time%></p>
+                  </div>
+                </div><br>
+                <div class="row">
+                  <%= link_to 'Donate', new_project_user_fund_project_path(@project ,{:project => @project.id}  ), class: 'btn btn-success btn-lg' %>
+                  <% if current_user?(@user) || current_user_admin?%>
+                    <%= link_to 'Edit!', edit_promise_path(promise), class: 'btn btn-warning btn-lg' %>
+                    <%= link_to 'Delete Promise', promise,
+                              method: :delete,
+                              data: {confirm: 'Are you sure?'},
+                              class: 'btn btn-danger btn-lg' %>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  <%end%>
