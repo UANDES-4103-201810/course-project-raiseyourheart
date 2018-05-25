@@ -4,6 +4,7 @@ class CreatePromises < ActiveRecord::Migration[5.2]
       t.text :description
       t.numeric :amount
       t.date :delivery_time
+      t.attachment :avatar
       t.references :user, foreign_key: true
       t.references :project, foreign_key: true
 
