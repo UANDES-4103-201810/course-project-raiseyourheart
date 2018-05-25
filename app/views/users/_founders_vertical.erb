@@ -7,16 +7,19 @@
     <div class="row">
       <strong><%=object.first%> <%=object.last%></strong>
     </div>
-    <%if object.first=="Anonymous"%>
-      <br>
-    <%else%>
-    <div class="row">
-      <strong>Member since: </strong><%=User.member_since(object)%>
-    </div>
+    <%if object.first!="Anonymous"%>
+      <div class="row">
+        <strong>Member since: </strong><%=User.member_since(object)%>
+      </div>
     <%end%>
     <div class="row">
-      <strong>Donation: <%=number_to_currency(UserFundProject.last_donation_user(object))%></strong>
+      <strong>Donation: <%=number_to_currency(UserFundProject.last_donation_user(object, @project))%></strong>
     </div>
+    <%if object.first!="Anonymous"%>
+      <div class="row">
+        <%= link_to 'View Profile', user_path(@user), class: 'btn btn-primary btn-sm' %>
+      </div>
+    <%end%>
   </div>
 </div>
 

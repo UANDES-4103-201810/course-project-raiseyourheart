@@ -79,17 +79,25 @@
   <div class="row margin-top-20">
     <div class="col-sm-8">
       <h3><strong>Donate throw Promises!</strong></h3>
+      <%if @promises.count > 0 %>
         <%= render "promises/show_promise_horizontal" , object:@promises%>
+      <%else%>
+        <h4>This project doesn't have promises yet</h4>
+      <%end%>
     </div>
     <div class="col-sm-3 col-sm-offset-1">
       <div class="row">
         <h3 class="text-center"><strong>People who helped!</strong></h3>
       </div>
-      <div class="row round1 padding-15">
-         <%@founders.each do |founder|%>
-          <%= render "users/founders_vertical" , object:founder%>
-        <%end%>
-      </div>
+      <%if @founders.count > 0 %>
+        <div class="row round1 padding-15">
+           <%@founders.each do |founder|%>
+            <%= render "users/founders_vertical" , object:founder%>
+          <%end%>
+        </div>
+      <%else%>
+        <h4>No donations yet, be the first!</h4>
+      <%end%>
     </div>
   </div>
 
