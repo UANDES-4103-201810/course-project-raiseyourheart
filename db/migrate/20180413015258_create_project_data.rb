@@ -11,6 +11,7 @@ class CreateProjectData < ActiveRecord::Migration[5.2]
       t.text :description
       t.references :project, foreign_key: true
       t.string :website
+      t.attachment :avatar
 
       t.timestamps
     end
