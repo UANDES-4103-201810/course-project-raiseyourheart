@@ -3,7 +3,7 @@
 <div class="container col-sm-12">
 
   <div class="col-sm-3 visible-md visible-lg">
-    <%=image_tag(@user.avatar.url(:thumb), class: "thumb thumb-project pull-left style-img")%>
+    <%=image_tag(@user.avatar.url, class: "thumb thumb-project pull-left style-img")%>
   </div>
   <div class="col-sm-8 col-sm-offset-1 visible-md visible-lg">
   <!--    <%#if !@user.errors.empty?%><div class="alert alert-danger"><%#= devise_error_messages! %></div><%#end%>-->
