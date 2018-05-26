@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :require_owner, :except => [:show, :new, :create, :index]
+  #before_action :require_owner, :except => [:show, :new, :create, :update, :index]
 
   def index
     @projects = Project.all
@@ -14,11 +14,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = ProjectDatum.new
   end
 
   def create
-    @project.new(project.params)
+
   end
 
   def edit
@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
     def require_owner
       @project=Project.find(params[:id])
       @user = current_user
-      unless @project.user == @user || current_user_admin?
+      unless (@project.user == @user || current_user_admin?)
         redirect_to root_url, alert: "Unauthorized access!"
       end
     end
