@@ -19,7 +19,9 @@
               <div class="posts col-sm-10">
                 <div class="row">
                   <h2><%= link_to user.first, user, class:"post-title" %> <%= link_to user.last, user, class:"post-title" %></h2>
-                    <p class="post-contenido text-justify"> <%=user.description.truncate(200, separator: ' ')%></p>
+                    <% unless (user.description.nil?) %>
+                      <p class="post-contenido text-justify"> <%= user.description.truncate(200, separator: ' ')%></p>
+                    <% end %>
                 </div>
                 <div class="row">
                   <div class="posts col-sm-3 edit-project-forms">
