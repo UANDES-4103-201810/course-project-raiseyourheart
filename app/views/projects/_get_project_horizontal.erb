@@ -1,4 +1,3 @@
-
 <section class="main container">
   <% object.each do |project| %>
     <div class="row">
@@ -6,23 +5,25 @@
         <article class="post clearfix">
           <%= image_tag ProjectDatum.current_project(project).avatar.url, :class=>"thumb pull-left style-img visible-md visible-lg" %>
           <h2><%= link_to ProjectDatum.current_project(project).name, project, class:"post-title" %></h2>
-          <p class="post-contenido text-justify"> <%=ProjectDatum.current_project(project).description%></p>
+          <p class="post-contenido text-justify"> <%=ProjectDatum.current_project(project).description.truncate(200,separator:' ')%></p>
           <p class="post-contenido text-justify"> <%= number_to_currency ProjectDatum.current_project(project).amount_raised%></p>
           <div class="contener-botones">
-              <% if current_user_admin? %>
-                <!--<%= link_to 'Set as featured', project, class: 'btn btn-primary' %>-->
-                <div class="button-container">
-                  <%= link_to 'Show More!', project, class: 'btn btn-success' %>
-                  <%= form_for project do |p| %>
-                    <%= p.hidden_field :featured, value:true %>
-                    <%= p.submit "Set as featured", class: 'btn btn-primary' %>
-                  <% end %>
-                  <%= form_for project do |p| %>
-                    <%= p.hidden_field :featured, value:false %>
-                    <%= p.submit "Not featured", class: 'btn btn-danger' %>
-                  <% end %>
-                </div>
-              <% end %>
+            <% if current_user_admin? %>
+              <!--<%= link_to 'Set as featured', project, class: 'btn btn-primary' %>-->
+              <div class="button-container">
+                <%= link_to 'Show More!', project, class: 'btn btn-success' %>
+                <%= form_for project do |p| %>
+                  <%= p.hidden_field :featured, value:true %>
+                  <%= p.submit "Set as featured", class: 'btn btn-primary' %>
+                <% end %>
+                <%= form_for project do |p| %>
+                  <%= p.hidden_field :featured, value:false %>
+                  <%= p.submit "Not featured", class: 'btn btn-danger' %>
+                <% end %>
+              </div>
+            <%else%>
+              <%= link_to 'Show More!', project, class: 'btn btn-success' %>
+            <% end %>
           </div>
         </article>
       </section>

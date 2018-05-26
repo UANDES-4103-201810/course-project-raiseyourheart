@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
   helper_method :all_categories
 
 
+
   protected
 
   def configure_permitted_parameters
