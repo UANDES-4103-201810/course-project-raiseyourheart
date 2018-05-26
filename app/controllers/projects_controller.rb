@@ -27,20 +27,20 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     # respond_to do |format|
-    if @project.update(user_params)
+    if @project.update(project_params)
       # format.html { redirect_to @user, notice: 'User was successfully updated.' }
       # format.json { render :show, status: :ok, location: @user }
-      redirect_to @project, notice: "Succesful Project Update!."
+      redirect_to @project, notice: "Successful Project Update!."
     else
       # format.html { render :edit }
       # format.json { render json: @user.errors, status: :unprocessable_entity }
-      redirect_to users_path @project, alert: "Error: Impossible to updated project."
+      redirect_to users_path @project, alert: "Error: Impossible to update project."
     end
     # end
   end
 
   private
     def project_params
-      project_params = params.require(:project).permit(:category, :user)
+      project_params = params.require(:project).permit(:id, :category, :user, :featured)
     end
 end
