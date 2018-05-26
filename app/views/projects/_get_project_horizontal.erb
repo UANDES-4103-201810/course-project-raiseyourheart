@@ -8,9 +8,10 @@
           <p class="post-contenido text-justify"> <%=ProjectDatum.current_project(project).description.truncate(200,separator:' ')%></p>
           <p class="post-contenido text-justify"> <%= number_to_currency ProjectDatum.current_project(project).amount_raised%></p>
           <div class="contener-botones">
-            <% if current_user_admin? %>
+
               <!--<%= link_to 'Set as featured', project, class: 'btn btn-primary' %>-->
-              <div class="button-container">
+            <div class="button-container">
+              <% if current_user_admin? %>
                 <%= link_to 'Show More!', project, class: 'btn btn-success' %>
                 <%= form_for project do |p| %>
                   <%= p.hidden_field :featured, value:true %>
@@ -20,10 +21,10 @@
                   <%= p.hidden_field :featured, value:false %>
                   <%= p.submit "Not featured", class: 'btn btn-danger' %>
                 <% end %>
-              </div>
-            <%else%>
-              <%= link_to 'Show More!', project, class: 'btn btn-success' %>
-            <% end %>
+              <%else%>
+                <%= link_to 'Show More!', project, class: 'btn btn-success' %>
+              <% end %>
+            </div>
           </div>
         </article>
       </section>
