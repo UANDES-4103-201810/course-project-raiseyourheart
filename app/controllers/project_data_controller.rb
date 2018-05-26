@@ -1,6 +1,7 @@
 class ProjectDataController < ApplicationController
 
   def update
+
     @project_datum=ProjectDatum.find(params[:id])
     new_params = Hash.new
     if project_data_params["amount_raised"].nil?
