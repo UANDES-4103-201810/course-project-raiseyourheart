@@ -33,7 +33,7 @@ class UserFundProjectsController < ApplicationController
     new_params["project_id"] = @project_datum.project_id
     new_params["website"] = @project_datum.website
     new_params["name"] = @project_datum.name
-    new_params["avatar_file_name"] = @project_datum.avatar_file_name
+    new_params["avatar"] = @project_datum.avatar
     new_params["abstract"] = @project_datum.abstract
 
     @project_datum_new = ProjectDatum.new(new_params)
