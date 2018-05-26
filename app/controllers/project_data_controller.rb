@@ -1,5 +1,42 @@
 class ProjectDataController < ApplicationController
 
+
+
+  def create
+
+    @user=current_user
+    project_params = Hash.new
+    project_params["user_id"]=@user.id
+    project_params["category_id"]= 1
+    @project = Project.new(project_params)
+    @project.save
+
+    new_params = Hash.new
+    new_params["amount_raised"] = project_data_params["amount_raised"].to_f
+    new_params["visible"] = project_data_params["visible"]
+    new_params["goal"] = project_data_params["goal"]
+    new_params["category_id"] = @project.category.id
+    new_params["deadline"] = project_data_params["deadline"]
+    new_params["estimated_delivery_time"] = project_data_params["estimated_delivery_time"]
+    new_params["description"] = project_data_params["description"]
+    new_params["project_id"] = @project.id
+    new_params["website"] = project_data_params["website"]
+    new_params["name"] = project_data_params["name"]
+    new_params["avatar"] = project_data_params["avatar"]
+    new_params["abstract"] = project_data_params["abstract"]
+
+    @project_data = ProjectDatum.new(new_params)
+    if @project_data.save
+      redirect_to project_path(@project_data.project_id), notice: "Succesful creation!"
+    else
+      @project.destroy
+      redirect_to root_path, alert: "Error: "+@project_data.errors.full_messages.to_sentence
+    end
+  end
+
+
+
+
   def update
     @project_datum=ProjectDatum.find(params[:id])
     new_params = Hash.new

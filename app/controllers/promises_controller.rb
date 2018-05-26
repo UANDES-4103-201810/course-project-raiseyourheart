@@ -16,7 +16,7 @@ class PromisesController < ApplicationController
     if @promise.update(promise_params)
       redirect_to @project, notice: "Promise updated succesfully."
     else
-      redirect_to @project, alert: "Promise couldn't be updated: "+ @promise.errors.fullmessages.to_sentence
+      redirect_to @project, alert: "Promise couldn't be updated: "+ @promise.errors.full_messages.to_sentence
     end
   end
 
