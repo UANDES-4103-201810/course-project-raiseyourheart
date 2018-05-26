@@ -1,0 +1,50 @@
+<%= form_for(@promise) do |f| %>
+  <div class="container col-sm-12">
+    <div class="col-sm-3 visible-md visible-lg">
+      <%=image_tag(@promise.avatar.url, class: "thumb thumb-project pull-left style-img")%>
+      <%= f.file_field :avatar %>
+    </div>
+    <div class="col-sm-8 col-sm-offset-1 visible-md visible-lg">
+      <%if !@promise.errors.empty?%><div class="alert alert-danger"><%= devise_error_messages! %></div><%end%>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="field">
+            <%= f.label :description %><br/>
+            <%= f.text_area :description, placeholder: "Describe your promise!", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-md-3">
+          <div class="field">
+            <%= f.label :amount %><br/>
+            <%= f.number_field :amount,  class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-md-3">
+          <%= f.label :delivery_time %><br/>
+          <div class="input-group date" id="sandbox-container">
+            <%= f.text_field :delivery_time, "data-provide" => 'datepicker', "data-date-format"=>"dd/mm/yyyy", placeholder: "DD/MM/YYYY", class: "form-control" %><span class="input-group-addon">
+                  <i class="glyphicon glyphicon-th"></i></span>
+          </div>
+        </div>
+      </div></br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="actions">
+            <%if !@promise.project.nil?%>
+              <%= f.submit "Save Changes!" , class: "btn btn-success" %>
+            <%else%>
+              <%@user = current_user%>
+              <%= f.hidden_field :user, :value => @user.id %>
+              <%= f.hidden_field :project, :value => params[:project] %>
+              <%= f.submit "Create!" , class: "btn btn-success" %>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>

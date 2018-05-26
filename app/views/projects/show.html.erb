@@ -86,7 +86,7 @@
       <%end%>
       <% if current_user?(@user) || current_user_admin?%>
         <div class="row">
-          <%= link_to 'Create new Promise', new_promise_path, class: 'btn btn-primary' %>
+          <%= link_to 'Create new Promise', new_promise_path(@project ,{:project => @project.id}), class: 'btn btn-primary' %>
         </div>
       <%end%>
     </div>

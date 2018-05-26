@@ -54,7 +54,7 @@ class ProjectDataController < ApplicationController
       new_params["name"] = project_data_params["name"]
     end
     if project_data_params["avatar"].nil?
-      new_params["avata"] = @project_datum.avatar_file_name
+      new_params["avatar"] = @project_datum.avatar_file_name
     else
       new_params["avatar"] = project_data_params["avatar"]
     end
