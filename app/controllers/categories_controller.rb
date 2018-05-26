@@ -3,4 +3,8 @@ class CategoriesController < ApplicationController
     @category=Category.find(params[:id])
     @projects = Project.belong_category(@category)
   end
+
+  def new
+    @category = Category.new
+  end
 end
