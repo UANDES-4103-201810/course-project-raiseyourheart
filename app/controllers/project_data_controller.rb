@@ -82,4 +82,5 @@ class ProjectDataController < ApplicationController
     params.require(:project_datum).permit(:amount_raised, :visible, :goal, :category_id, :deadline, :estimated_delivery_time, :description, :project_id, :website, :name, :avatar, :abstract)
   end
 
+
 end
