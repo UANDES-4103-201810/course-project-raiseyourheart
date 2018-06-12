@@ -1,3 +1,14 @@
+User.delete_all
+Category.delete_all
+Project.delete_all
+Medium.delete_all
+ProjectDatum.delete_all
+Promise.delete_all
+Good.delete_all
+UserBuyPromise.delete_all
+UserFundProject.delete_all
+Wishlist.delete_all
+
 User.create!([
   {login: nil, first: "Andres", last: "Howard", password: 123456789, password_confirmation: 123456789, email: "aihoward@miuandes.cl",admin: true, phone: "912345678", description: "I'm learning programming on rails yeah!", birthdate: "1987-10-22", gender: "male", encrypted_password: "$2a$11$Y1CgmYk6sHkDVksgb.g22eNlV4AULLWTlPrU5gTmfrsRHJ3vzxk3.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil},
   {login: nil, first: "Carlos", last: "Diaz", password: 123456789, password_confirmation: 123456789, email: "cdiaz1@miuandes.cl", admin: true, phone: "912345678", description: "I'm learning programming on rails, and I love it!", birthdate: "1992-05-02", gender: "male", encrypted_password: "$2a$11$zPsTEUBabJ9brt2x7KU8ZOUgdI0wHU8yhHau.pTC.kFNgTwDgfHB2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil},
@@ -33,7 +44,8 @@ ProjectDatum.create!([
   {amount_raised: "150.0", visible: true, goal: "500.0", category_id: 3, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 3, it has to be at least of 50 characters", project_id: 3, website: "www.project3.com" , name: "Project 3", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."},
   {amount_raised: "150.0", visible: true, goal: "5000.0", category_id: 3, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 3, it has to be at least of 50 characters", project_id: 3, website: "www.project3.com", name: "Entity Pictur", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."},
   {amount_raised: "240.0", visible: true, goal: "20000.0", category_id: 4, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 4, it has to be at least of 50 characters", project_id: 4, website: "www.project4.com", name: "Project 4", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."},
-  {amount_raised: "0.0", visible: true, goal: "2000.0", category_id: 4, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 5, it has to be at least of 50 characters", project_id: 5, website: "www.project5.com", name: "Project 5", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."}
+  {amount_raised: "0.0", visible: true, goal: "2000.0", category_id: 4, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: %Q{### This is the description of project number 5
+                                                                                                                                                      It has to be at least of 50 characters}, project_id: 5, website: "www.project5.com", name: "Project 5", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."}
 ])
 Promise.create!([
   {description: "This is the description of the first promise", amount: "60.0", delivery_time: "2018-04-26", user_id: 1, project_id: 1},

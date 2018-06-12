@@ -29,6 +29,10 @@ gem 'bootstrap-datepicker-rails'
 # Paperclip gem to handle file uploads
 gem 'paperclip', "~> 6.0.0"
 
+# Markdown
+gem 'redcarpet'
+
+# Oauth
 gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-facebook'
