@@ -4,7 +4,28 @@
 - [Carlos Díaz](mailto:cdiaz1@miuandes.cl)
 - [Andrés Howard](mailto:aihoward@miuandes.cl)
 
-## Features implemented
+# Features implemented (Assignment 4)
+
+- We implemented `omniauth` with Facebook. Out facebook application is not published due 
+to legal reasons, therefore the test user has to be included by hand. Please have
+this in consideration.
+
+- Every action in the app already showed feedback, so we didn't have to do anything here.
+
+- We included `redcarpet` gem to render markdown. We use a helper method in the 
+`app/helpers/application_helper.rb` file called markdown to render project descriptions
+into html.
+
+-  We implemented the funding flow of Assignment 1.1 which includes a confirmation
+via email. Before this we were able to fund without confirmation. This includes
+funding with promises.
+
+- We implemented a search bar that allows to search through project titles and descriptions.
+
+- We implemented Autorization by hand using `devise`, so we didn't use the gem
+`cancancan`.
+
+## Features implemented _(old)_
 
 - In the landing page we show three featured projects. From here 
 the user can go to _Browse Projects_ where all projects are shown or
