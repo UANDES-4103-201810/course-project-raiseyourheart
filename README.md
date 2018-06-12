@@ -4,7 +4,7 @@
 - [Carlos Díaz](mailto:cdiaz1@miuandes.cl)
 - [Andrés Howard](mailto:aihoward@miuandes.cl)
 
-# Features implemented (Assignment 4)
+## Features implemented (Assignment 4)
 
 - We implemented `omniauth` with Facebook. Out facebook application is not published due 
 to legal reasons, therefore the test user has to be included by hand. Please have
