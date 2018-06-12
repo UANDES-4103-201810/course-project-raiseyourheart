@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_06_12_175411) do
 
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -90,6 +91,8 @@ ActiveRecord::Schema.define(version: 2018_06_12_175411) do
     t.integer "promise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "email_confirmed", default: false
+    t.string "confirm_token"
     t.index ["promise_id"], name: "index_user_buy_promises_on_promise_id"
     t.index ["user_id"], name: "index_user_buy_promises_on_user_id"
   end
