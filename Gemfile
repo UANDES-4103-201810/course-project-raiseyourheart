@@ -29,6 +29,9 @@ gem 'bootstrap-datepicker-rails'
 # Paperclip gem to handle file uploads
 gem 'paperclip', "~> 6.0.0"
 
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
