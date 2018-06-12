@@ -1,0 +1,9 @@
+<p>Hi <%= @user.first %> <%= @user.last %>,</p>
+
+<p>Thanks for funding! To confirm your funding click the URL below. </p>
+<ul>
+  <li>Project: <%=@project.name%></li>
+  <li>Amount: <%=@fund.amount%></li>
+</ul>
+<p><%=  link_to "confirm", confirm_email_url(@fund.confirm_token, host: "http://localhost:3000")%></p>
+

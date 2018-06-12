@@ -1,25 +1,49 @@
 
 <%if current_user.nil?%>
   <h1 class="display-3 text-center">Thanks for your help! <span class="glyphicon glyphicon-heart"></span></h1>
+  <%= form_tag(:controller => "user_fund_projects", :action => "create") do %>
+    <div class="row">
+      <div class="text-center w-30-form">
+        <div class="field">
+          <%= label_tag :amount %><br />
+          <%= number_field_tag 'amount', nil, autofocus: true, autocomplete: 0, class: "form-control"%>
+        </div>
+      </div>
+    </div></br>
+    <div class="row">
+      <div class="text-center w-30-form">
+        <div class="field">
+          <%= label_tag :email %><br />
+          <%= text_field_tag 'email', nil, placeholder: "Valid email for confirmation", class: "form-control"%>
+        </div>
+      </div>
+    </div></br>
+    <div class="row">
+      <div class="text-center">
+        <div class="actions">
+          <%= submit_tag "Donate!", class: "btn btn-success btn-lg" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <%else%>
   <h1 class="display-3 text-center">Thanks for your help! <%=@user.first %> <%=@user.last %> <span class="glyphicon glyphicon-heart"></span></h1>
-<%end%><br>
-<%= form_for([@project,@fund]) do |f| %>
-  <%if !@fund.errors.empty?%><div class="alert alert-danger"><%= devise_error_messages! %></div><%end%>
-  <div class="row">
-    <div class="text-center w-30-form">
-      <div class="field">
-        <%= f.label :amount %><br />
-        <%= f.number_field :amount, autofocus: true, autocomplete: 0, class: "form-control"%>
+  <%= form_for([@project,@fund]) do |f| %>
+    <%if !@fund.errors.empty?%><div class="alert alert-danger"><%= devise_error_messages! %></div><%end%>
+    <div class="row">
+      <div class="text-center w-30-form">
+        <div class="field">
+          <%= f.label :amount %><br />
+          <%= f.number_field :amount, autofocus: true, autocomplete: 0, class: "form-control"%>
+        </div>
       </div>
-    </div>
-  </div></br>
-  <div class="row">
-    <div class="text-center">
-      <div class="actions">
+    </div></br>
+    <div class="row">
+      <div class="text-center">
+        <div class="actions">
           <%= f.submit "Donate!", class: "btn btn-success btn-lg" %>
+        </div>
       </div>
     </div>
-  </div>
-
-<%end%>
+  <%end%>
+<%end%><br>

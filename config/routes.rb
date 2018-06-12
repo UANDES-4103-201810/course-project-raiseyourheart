@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   post "/user_buy_promises" => "user_buy_promises#create", as: "buy_promise_path"
 
+  get '/:token/confirm_email/', :to => "user_fund_projects#confirm_email", as: 'confirm_email'
+
   #get 'user/:id/projects' => 'projects#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

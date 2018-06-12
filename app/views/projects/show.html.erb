@@ -97,7 +97,9 @@
       <%if @founders.count > 0 %>
         <div class="row round1 padding-15">
            <%@founders.each do |founder|%>
-            <%= render "users/founders_vertical" , object:founder%>
+            <% if !UserFundProject.validate_last_donation?(founder, @project)%>
+              <%= render "users/founders_vertical" , object:founder%>
+            <%end%>
           <%end%>
         </div>
       <%else%>

@@ -33,7 +33,7 @@ ProjectDatum.create!([
   {amount_raised: "150.0", visible: true, goal: "500.0", category_id: 3, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 3, it has to be at least of 50 characters", project_id: 3, website: "www.project3.com" , name: "Project 3", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."},
   {amount_raised: "150.0", visible: true, goal: "5000.0", category_id: 3, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 3, it has to be at least of 50 characters", project_id: 3, website: "www.project3.com", name: "Entity Pictur", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."},
   {amount_raised: "240.0", visible: true, goal: "20000.0", category_id: 4, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 4, it has to be at least of 50 characters", project_id: 4, website: "www.project4.com", name: "Project 4", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."},
-  {amount_raised: "0.0", visible: true, goal: "2000.0", category_id: 4, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 5, it has to be at least of 50 characters", project_id: 5, website: "www.project5.com", name: "Project 1", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."}
+  {amount_raised: "0.0", visible: true, goal: "2000.0", category_id: 4, deadline: "2018-05-05", estimated_delivery_time: "2018-08-03", description: "This is the description of project number 5, it has to be at least of 50 characters", project_id: 5, website: "www.project5.com", name: "Project 5", abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan pellentesque dolor vel vestibulum."}
 ])
 Promise.create!([
   {description: "This is the description of the first promise", amount: "60.0", delivery_time: "2018-04-26", user_id: 1, project_id: 1},
@@ -57,11 +57,11 @@ UserBuyPromise.create!([
   {user_id: 4, promise_id: 2}
 ])
 UserFundProject.create!([
-  {user_id: 1, project_id: 1, amount: "100.0"},
-  {user_id: 1, project_id: 2, amount: "10.0"},
-  {user_id: 2, project_id: 3, amount: "150.0"},
-  {user_id: 4, project_id: 4, amount: "130.0"},
-  {user_id: 5, project_id: 4, amount: "110.0"}
+  {user_id: 1, project_id: 1, amount: "1160.0", email_confirmed: true},
+  {user_id: 1, project_id: 2, amount: "175.0", email_confirmed: true},
+  {user_id: 2, project_id: 3, amount: "150.0", email_confirmed: true},
+  {user_id: 4, project_id: 4, amount: "130.0", email_confirmed: true},
+  {user_id: 5, project_id: 4, amount: "110.0", email_confirmed: true}
 ])
 Wishlist.create!([
   {user_id: 1, project_id: 1},
