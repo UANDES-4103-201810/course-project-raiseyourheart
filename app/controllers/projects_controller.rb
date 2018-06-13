@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  #before_action :require_owner, :except => [:show, :new, :create, :update, :index]
+  before_action :require_owner, :except => [:show, :new, :create, :update, :index]
 
   def index
     unless search_params[:search_term].blank?
@@ -69,6 +69,11 @@ class ProjectsController < ApplicationController
 
     def search_params
       search_params = params.permit(:search_term)
+    end
+
+    def require_owner
+      @user = User.find_by(id:  Project.find_by(id: params[:id]).user_id )
+      redirect_to root_url, alert: "Unauthorized access!" unless current_user?(@user) || current_user_admin?
     end
 
 end
