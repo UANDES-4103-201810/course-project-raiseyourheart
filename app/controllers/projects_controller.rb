@@ -2,7 +2,28 @@ class ProjectsController < ApplicationController
   #before_action :require_owner, :except => [:show, :new, :create, :update, :index]
 
   def index
-    @projects = Project.all
+    unless search_params[:search_term].blank?
+      projects = Project.all
+      projects_hash = Hash.new
+      projects.each do |project|
+        project_data = ProjectDatum.current_project(project)
+        projects_hash[project] = project_data
+      end
+      projects_data = ProjectDatum.where("name LIKE :search_term OR description LIKE :search_term AND visible = 1", search_term: "%#{search_params[:search_term]}%")
+
+      projects_ids = Array.new
+      projects_data.each do |pd|
+        projects_ids.append pd.project_id
+      end
+      #byebug
+      projects_ids.uniq!
+      @projects = Project.where(id: projects_ids)
+      @title = 'Projects containing: ' + search_params[:search_term]
+      @keyword = search_params[:search_term]
+    else
+      @projects = Project.all
+      @title = 'We have ' + @projects.size.to_s + " open project".pluralize(@projects.size)
+    end
   end
 
   def show
@@ -43,7 +64,11 @@ class ProjectsController < ApplicationController
 
   private
     def project_params
-      project_params = params.require(:project).permit(:id, :category, :user, :featured)
+      project_params = params.require(:project).permit(:id, :category, :user, :featured, :search_term)
+    end
+
+    def search_params
+      search_params = params.permit(:search_term)
     end
 
 end
