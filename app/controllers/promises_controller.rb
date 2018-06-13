@@ -1,5 +1,5 @@
 class PromisesController < ApplicationController
-  #before_action :require_owner, :except => [:show, :new, :create, :index]
+  before_action :require_owner, :except => [:show, :new, :create, :index]
 
   def new
     @promise = Promise.new
@@ -53,5 +53,9 @@ class PromisesController < ApplicationController
     params.require(:promise).permit(:description, :delivery_time, :amount, :avatar, :project, :user)
   end
 
+  def require_owner
+    @user = User.find_by(id:  Promise.find_by(id: params[:id]).user_id )
+    redirect_to root_url, alert: "Unauthorized access!" unless current_user?(@user) || current_user_admin?
+  end
 
 end
