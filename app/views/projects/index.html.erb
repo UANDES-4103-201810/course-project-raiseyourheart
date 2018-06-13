@@ -1,9 +1,18 @@
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
     <header class="page-header">
-      <h1 class="display-3 text-center">We have <%= pluralize @projects.size, 'open project' %></h1>
+      <h1 class="display-3 text-center"><%= @title %></h1>
     </header>
   </div>
 </div>
 
-<%=render "projects/get_project_horizontal", object: @projects %>
+<% unless @projects.nil? %>
+  <%=render "projects/get_project_horizontal", object: @projects %>
+<% else %>
+  <section class="main container">
+    <div class="row">
+      <p>There are no projects containing your keyword <i><strong><%= @keyword %></strong></i>.</p>
+    </div>
+  </section>
+
+<% end %>

@@ -25,6 +25,16 @@
                 <% all_categories.each do |c| %>
                   <li><%= link_to c.name, category_path(c) %></li>
                 <%end%>
+                <div class="container-fluid">
+                <%= form_tag(projects_path, method: :get) do %>
+                  <div class="row">
+                    <%= text_field_tag :search_term, params[:search_term], class:"form-control", placeholder: "Enter search term" %>
+                  </div>
+                  <div class="row">
+                    <%= submit_tag 'Search', name: nil, class: "btn btn-success", style:"float:right;" %>
+                  </div>
+                <% end %>
+                </div>
               </ul>
             </li>
             <% if current_user_admin? %>
