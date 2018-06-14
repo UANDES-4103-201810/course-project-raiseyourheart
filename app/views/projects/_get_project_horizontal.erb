@@ -16,11 +16,13 @@
                 <%if !project.featured%>
                   <%= form_for project do |p| %>
                     <%= p.hidden_field :featured, value:true %>
+                    <%= p.hidden_field :on_project, value:false %>
                     <%= p.submit "Set as featured", class: 'btn btn-primary' %>
                   <% end %>
                 <%else%>
                   <%= form_for project do |p| %>
                     <%= p.hidden_field :featured, value:false %>
+                    <%= p.hidden_field :on_project, value:false %>
                     <%= p.submit "Not featured", class: 'btn btn-danger' %>
                   <% end %>
               <%end%>

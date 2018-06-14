@@ -53,11 +53,19 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       # format.html { redirect_to @user, notice: 'User was successfully updated.' }
       # format.json { render :show, status: :ok, location: @user }
-      redirect_to @project, notice: "Successful Project Update!."
+      if params[:project][:on_project]=="true"
+        redirect_to @project, notice: "Successful Project Update!."
+      else
+        redirect_to projects_path, notice: "Successful Project Update!."
+      end
     else
       # format.html { render :edit }
       # format.json { render json: @user.errors, status: :unprocessable_entity }
-      redirect_to users_path @project, alert: "Error: Impossible to update project."
+      if params[:project][:on_project]
+        redirect_to @project, alert: "Error: Impossible to update project."
+      else
+        redirect_to projects_path, notice: "Error: Impossible to update project."
+      end
     end
     # end
   end

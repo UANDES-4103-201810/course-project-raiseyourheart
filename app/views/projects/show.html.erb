@@ -40,27 +40,50 @@
       </div>
       <div class="row">
         <%if current_user?(@project.user) || current_user_admin?%>
-          <%= link_to "Edit Project!", edit_project_path(@project), class: "btn btn-success" %>
-          <%= link_to 'Delete Project', @project,
-                      method: :delete,
-                      data: {confirm: 'Are you sure?'},
-                      class: 'btn btn-danger' %>
-        <%end%>
-      </div><br>
-      <div class="row">
-        <%if !current_user.nil?%>
-          <% if Wishlist.user_wishlist?(current_user,@project) %>
-            <%=form_tag(:controller => "wishlists", :action => "create") do %>
-              <%= hidden_field_tag :project, params[:id] %>
-              <%= submit_tag "Add to Wishlist", class: "btn btn-primary" %>
-            <%end%>
-          <%else%>
-            <%@wishlist=Wishlist.wishlist(current_user,@project)%>
-            <%= link_to 'Remove from Wishlist', @wishlist,
+          <div class="col-sm-12 col-md-4 show-project-button">
+            <%= link_to "Edit Project!", edit_project_path(@project), class: "btn btn-success" %>
+          </div>
+          <div class="col-sm-12 col-md-4 show-project-button">
+            <%= link_to 'Delete Project', @project,
                         method: :delete,
                         data: {confirm: 'Are you sure?'},
                         class: 'btn btn-danger' %>
-          <%end%>
+          </div>
+        <%end%>
+        <% if current_user_admin? %>
+          <div class="col-sm-12 col-md-4 show-project-button">
+            <%if @project.featured%>
+              <%= form_for @project do |p| %>
+                <%= p.hidden_field :featured, value:false %>
+                <%= p.hidden_field :on_project, value:false %>
+                <%= p.submit "Not featured", class: 'btn btn-danger' %>
+              <% end %>
+            <%else%>
+              <%= form_for @project do |p| %>
+                <%= p.hidden_field :featured, value:true %>
+                <%= p.hidden_field :on_project, value:false %>
+                <%= p.submit "Set as featured", class: 'btn btn-primary' %>
+              <% end %>
+            <%end%>
+          </div>
+        <% end %>
+      </div><br>
+      <div class="row edit-project-forms">
+        <%if !current_user.nil?%>
+          <div class="col-sm-12 col-md-6 show-project-button">
+            <% if Wishlist.user_wishlist?(current_user,@project) %>
+              <%=form_tag(:controller => "wishlists", :action => "create") do %>
+                <%= hidden_field_tag :project, params[:id] %>
+                <%= submit_tag "Add to Wishlist", class: "btn btn-primary" %>
+              <%end%>
+            <%else%>
+              <%@wishlist=Wishlist.wishlist(current_user,@project)%>
+              <%= link_to 'Remove from Wishlist', @wishlist,
+                          method: :delete,
+                          data: {confirm: 'Are you sure?'},
+                          class: 'btn btn-danger' %>
+            <%end%>
+          </div>
         <%end%>
       </div>
 
