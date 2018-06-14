@@ -21,8 +21,13 @@ class ProjectsController < ApplicationController
       @title = 'Projects containing: ' + search_params[:search_term]
       @keyword = search_params[:search_term]
     else
-      @projects = Project.all
-      @title = 'We have ' + @projects.size.to_s + " open project".pluralize(@projects.size)
+      if params[:outstanding]
+        @projects = Project.where(featured: true)
+        @title = 'We have ' + @projects.size.to_s + " outstandig project".pluralize(@projects.size)
+      else
+        @projects = Project.all
+        @title = 'We have ' + @projects.size.to_s + " open project".pluralize(@projects.size)
+      end
     end
   end
 
@@ -48,11 +53,10 @@ class ProjectsController < ApplicationController
   end
 
   def update
+
     @project = Project.find(params[:id])
     # respond_to do |format|
     if @project.update(project_params)
-      # format.html { redirect_to @user, notice: 'User was successfully updated.' }
-      # format.json { render :show, status: :ok, location: @user }
       if params[:project][:on_project]=="true"
         redirect_to @project, notice: "Successful Project Update!."
       else
@@ -61,7 +65,7 @@ class ProjectsController < ApplicationController
     else
       # format.html { render :edit }
       # format.json { render json: @user.errors, status: :unprocessable_entity }
-      if params[:project][:on_project]
+      if params[:project][:on_project]=="true"
         redirect_to @project, alert: "Error: Impossible to update project."
       else
         redirect_to projects_path, notice: "Error: Impossible to update project."
@@ -87,7 +91,12 @@ class ProjectsController < ApplicationController
       search_params = params.permit(:search_term)
     end
 
-    def require_owner
+    def outstanding_params
+      outstanding_params = params.permit(:outstanding)
+    end
+
+
+  def require_owner
       @user = User.find_by(id:  Project.find_by(id: params[:id]).user_id )
       redirect_to root_url, alert: "Unauthorized access!" unless current_user?(@user) || current_user_admin?
     end
