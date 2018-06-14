@@ -5,20 +5,34 @@
     <%end%>
 
 
-  <header class="page-header">
-    <%if current_user?(@user) %>
-      <h1 class="display-3 text-center">You have <%= pluralize Project.user_project(@user).size, 'fundraiser' %>!<span class="glyphicon glyphicon-heart"></span></h1>
-    <%else%>
-      <h1 class="display-3 text-center"><%=@user.first %> <%=@user.last %> has <%= pluralize Project.user_project(@user).size, 'fundraiser' %>!<span class="glyphicon glyphicon-heart"></span></h1>
-    <%end%>
-  </header>
-  <%=render "projects/get_project_vertical", object: Project.user_project(@user) %>
+    <header class="page-header">
+      <%if current_user?(@user) %>
+        <h1 class="display-3 text-center">You have <%= pluralize Project.user_project(@user).size, 'fundraiser' %>!<span class="glyphicon glyphicon-heart"></span></h1>
+      <%else%>
+        <h1 class="display-3 text-center"><%=@user.first %> <%=@user.last %> has <%= pluralize Project.user_project(@user).size, 'fundraiser' %>!<span class="glyphicon glyphicon-heart"></span></h1>
+      <%end%>
+    </header>
+    <%=render "projects/get_project_vertical", object: Project.user_project(@user) %>
 
-  <header class="page-header">
+    <header class="page-header">
+      <%if current_user?(@user) %>
+        <h1 class="display-3 text-center specialheading">You have helped <%= pluralize Project.user_funds(@user).size, 'project' %>! <span class="glyphicon glyphicon-thumbs-up"></span></h1>
+      <%else%>
+        <h1 class="display-3 text-center specialheading">People who <%=@user.first %> <%=@user.last %> helped! <span class="glyphicon glyphicon-thumbs-up"></span></h1>
+      <%end%>
+    </header>
+    <%= render "projects/get_project_horizontal", object: Project.user_funds(@user) %>
+
     <%if current_user?(@user) %>
-      <h1 class="display-3 text-center specialheading">You have helped <%= pluralize Project.user_funds(@user).size, 'project' %>! <span class="glyphicon glyphicon-thumbs-up"></span></h1>
-    <%else%>
-      <h1 class="display-3 text-center specialheading">People who <%=@user.first %> <%=@user.last %> helped! <span class="glyphicon glyphicon-thumbs-up"></span></h1>
+      <header class="page-header">
+          <h1 class="display-3 text-center specialheading">Your Wishlist! <span class="glyphicon glyphicon-heart"></span></h1>
+      </header>
+      <%@wishlists=Wishlist.get_user_wishlist(@user)%>
+        <% if @wishlists.count>0 %>
+          <%= render "projects/get_project_wishlist_horizontal", object: @wishlists %>
+        <%else%>
+        <div class="container text-center">
+          <h4>No projects on wishlist yet!</h4>
+        </div>
+        <%end%>
     <%end%>
-  </header>
-  <%= render "projects/get_project_horizontal", object: Project.user_funds(@user) %>

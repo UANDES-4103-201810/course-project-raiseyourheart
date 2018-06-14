@@ -46,6 +46,22 @@
                       data: {confirm: 'Are you sure?'},
                       class: 'btn btn-danger' %>
         <%end%>
+      </div><br>
+      <div class="row">
+        <%if !current_user.nil?%>
+          <% if Wishlist.user_wishlist?(current_user,@project) %>
+            <%=form_tag(:controller => "wishlists", :action => "create") do %>
+              <%= hidden_field_tag :project, params[:id] %>
+              <%= submit_tag "Add to Wishlist", class: "btn btn-primary" %>
+            <%end%>
+          <%else%>
+            <%@wishlist=Wishlist.wishlist(current_user,@project)%>
+            <%= link_to 'Remove from Wishlist', @wishlist,
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'},
+                        class: 'btn btn-danger' %>
+          <%end%>
+        <%end%>
       </div>
 
     </div>

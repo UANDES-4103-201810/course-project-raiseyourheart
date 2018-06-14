@@ -1,5 +1,6 @@
 <section class="main container">
-  <% object.each do |project| %>
+  <% object.each do |wish| %>
+    <%project=Project.find(wish.project_id)%>
     <div class="row">
       <section class="posts col-sm-12 col-md-9 col-md-offset-1">
         <article class="post clearfix">
@@ -8,31 +9,17 @@
           <p class="post-contenido text-justify"> <%=markdown(ProjectDatum.current_project(project).description.truncate(200,separator:' '))%></p>
           <p class="post-contenido text-justify"> <%= number_to_currency ProjectDatum.current_project(project).amount_raised%></p>
           <div class="contener-botones">
-
-              <!--<%= link_to 'Set as featured', project, class: 'btn btn-primary' %>-->
             <div class="button-container">
-              <% if current_user_admin? %>
                 <%= link_to 'Show More!', project, class: 'btn btn-success' %>
-                <%if !project.featured%>
-                  <%= form_for project do |p| %>
-                    <%= p.hidden_field :featured, value:true %>
-                    <%= p.submit "Set as featured", class: 'btn btn-primary' %>
-                  <% end %>
-                <%else%>
-                  <%= form_for project do |p| %>
-                    <%= p.hidden_field :featured, value:false %>
-                    <%= p.submit "Not featured", class: 'btn btn-danger' %>
-                  <% end %>
-              <%end%>
-              <%else%>
-                <%= link_to 'Show More!', project, class: 'btn btn-success' %>
-              <% end %>
+                <%= link_to 'Remove from Wishlist', wishlist_path(wish, :user=>true),
+                            method: :delete,
+                            data: {confirm: 'Are you sure?'},
+                            class: 'btn btn-danger' %>
             </div>
           </div>
         </article>
       </section>
     </div>
-
   <%end%>
 
 

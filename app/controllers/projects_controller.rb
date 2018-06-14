@@ -62,6 +62,14 @@ class ProjectsController < ApplicationController
     # end
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+    @user=@project.user
+    @project.destroy
+    redirect_to @user, notice: "Project was successfully destroyed."
+
+  end
+
   private
     def project_params
       project_params = params.require(:project).permit(:id, :category, :user, :featured, :search_term)
