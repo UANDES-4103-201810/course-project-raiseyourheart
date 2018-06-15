@@ -126,6 +126,7 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    libv8 (3.16.14.19)
     libv8 (3.16.14.19-x86_64-darwin-17)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -175,6 +176,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    pg (1.0.0)
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
@@ -309,6 +311,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   paperclip (~> 6.0.0)
+  pg
   puma (~> 3.11)
   rails (~> 5.2.0)
   rails_admin (~> 1.3)
