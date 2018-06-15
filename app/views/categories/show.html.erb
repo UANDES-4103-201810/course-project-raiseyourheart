@@ -8,4 +8,8 @@
   </div>
 
 <div class="container">
-  <%= render "projects/get_project_horizontal", object: @projects%>
+  <%if @projects.count > 0 %>
+    <%= render "projects/get_project_horizontal", object: @projects%>
+  <%else%>
+    <h3>This category doesn't have projects right now</h3>
+  <%end%>

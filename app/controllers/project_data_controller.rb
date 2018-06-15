@@ -3,11 +3,10 @@ class ProjectDataController < ApplicationController
 
 
   def create
-
     @user=current_user
     project_params = Hash.new
     project_params["user_id"]=@user.id
-    project_params["category_id"]= 1
+    project_params["category_id"]= project_data_params[:category_id]
     @project = Project.new(project_params)
     @project.save
 
@@ -104,6 +103,8 @@ class ProjectDataController < ApplicationController
     @project_datum_new = ProjectDatum.new(new_params)
 
     if @project_datum_new.save
+      @project=Project.find(@project_datum.project_id)
+      @project.update(category: Category.find(@project_datum_new.category_id))
       redirect_to project_path(@project_datum.project_id), notice: "Project Updated!."
     else
       redirect_to project_path(@project_datum.project_id), alert: "Project could not be Updated: "+@project_datum_new.errors.full_messages.to_sentence

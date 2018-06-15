@@ -51,9 +51,10 @@
         <%= f.label :website %><br/>
         <%= f.text_field :website, autocomplete: true, class: "form-control" %><br>
       </div>
-      <!--<div class="col-sm-12 col-md-6 edit-project-forms">
-      <%= f.select :category_id, Category.pluck(:name) %>
-      </div>-->
+      <div class="col-sm-12 col-md-6 edit-project-forms">
+        <%= f.label :category %><br/>
+        <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => 'Select One', :class => 'form-control'  %>
+      </div>
 
     </div>
   </div>
