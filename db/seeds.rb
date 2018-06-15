@@ -1,13 +1,14 @@
-User.delete_all
-Category.delete_all
-Project.delete_all
-Medium.delete_all
-ProjectDatum.delete_all
-Promise.delete_all
 Good.delete_all
 UserBuyPromise.delete_all
 UserFundProject.delete_all
 Wishlist.delete_all
+Medium.delete_all
+ProjectDatum.delete_all
+Promise.delete_all
+Project.delete_all
+Category.delete_all
+User.delete_all
+
 
 User.create!([
   {login: nil, first: "Andres", last: "Howard", password: 123456789, password_confirmation: 123456789, email: "aihoward@miuandes.cl",admin: true, phone: "912345678", description: "I'm learning programming on rails yeah!", birthdate: "1987-10-22", gender: "male", encrypted_password: "$2a$11$Y1CgmYk6sHkDVksgb.g22eNlV4AULLWTlPrU5gTmfrsRHJ3vzxk3.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil},
