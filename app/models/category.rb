@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :projects
+  has_many :projects, dependent: :destroy
 
   validates :description, :name, presence: true
   validates :description, length: {minimum: 35}

@@ -8,8 +8,8 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :projects, dependent: :destroy
   # has_many :project_data, through: :projects
-  has_many :user_fund_projects
-  has_many :user_buy_promises
+  has_many :user_fund_projects, dependent: :destroy
+  has_many :user_buy_promises, dependent: :destroy
   has_many :wishlists, dependent: :destroy
 
   # validates :phone, length:  {minimum: 9, maximum: 12}
