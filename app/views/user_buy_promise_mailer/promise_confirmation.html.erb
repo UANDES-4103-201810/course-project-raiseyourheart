@@ -6,4 +6,4 @@
   <li>Promise: <%=@promise.description%></li>
   <li>Amount: <%=@promise.amount%></li>
 </ul>
-<p><%=  link_to "confirm", confirm_promise_url(@fund.confirm_token, host: "http://localhost:3000")%></p>
+<p><%=  link_to "confirm", confirm_promise_url(@fund.confirm_token, host: "https://raiseyourheart.herokuapp.com/")%></p>
