@@ -12,7 +12,7 @@ class ProjectDataController < ApplicationController
 
     new_params = Hash.new
     new_params["amount_raised"] = project_data_params["amount_raised"].to_f
-    new_params["visible"] = project_data_params["visible"]
+    new_params["visible"] = true
     new_params["goal"] = project_data_params["goal"]
     new_params["category_id"] = @project.category.id
     new_params["deadline"] = project_data_params["deadline"]
