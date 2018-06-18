@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
         project_data = ProjectDatum.current_project(project)
         projects_hash[project] = project_data
       end
-      projects_data = ProjectDatum.where("name LIKE :search_term OR description LIKE :search_term AND visible", search_term: "%#{search_params[:search_term]}%")
+      projects_data = ProjectDatum.where("(name ILIKE :search_term OR description ILIKE :search_term) AND visible", search_term: "%#{search_params[:search_term]}%")
 
       projects_ids = Array.new
       projects_data.each do |pd|
